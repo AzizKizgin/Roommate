@@ -14,6 +14,15 @@
 		E06617E42BBEFB470001723C /* RoommateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06617E32BBEFB470001723C /* RoommateTests.swift */; };
 		E06617EE2BBEFB470001723C /* RoommateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06617ED2BBEFB470001723C /* RoommateUITests.swift */; };
 		E06617F02BBEFB470001723C /* RoommateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06617EF2BBEFB470001723C /* RoommateUITestsLaunchTests.swift */; };
+		E06617FF2BBF03E60001723C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06617FE2BBF03E60001723C /* DataManager.swift */; };
+		E06618022BBF04230001723C /* RequestTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06618012BBF04230001723C /* RequestTypes.swift */; };
+		E06618042BBF04C10001723C /* QueryObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06618032BBF04C10001723C /* QueryObjects.swift */; };
+		E06618072BBF06940001723C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06618062BBF06940001723C /* User.swift */; };
+		E06618092BBF07240001723C /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06618082BBF07240001723C /* Room.swift */; };
+		E066180B2BBF0D520001723C /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066180A2BBF0D520001723C /* Endpoints.swift */; };
+		E066180D2BBF186C0001723C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066180C2BBF186C0001723C /* Extensions.swift */; };
+		E066180F2BBF1DD90001723C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066180E2BBF1DD90001723C /* UserManager.swift */; };
+		E06618112BBF20E10001723C /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06618102BBF20E10001723C /* RoomManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +54,15 @@
 		E06617E92BBEFB470001723C /* RoommateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoommateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06617ED2BBEFB470001723C /* RoommateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateUITests.swift; sourceTree = "<group>"; };
 		E06617EF2BBEFB470001723C /* RoommateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E06617FE2BBF03E60001723C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		E06618012BBF04230001723C /* RequestTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTypes.swift; sourceTree = "<group>"; };
+		E06618032BBF04C10001723C /* QueryObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryObjects.swift; sourceTree = "<group>"; };
+		E06618062BBF06940001723C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E06618082BBF07240001723C /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		E066180A2BBF0D520001723C /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		E066180C2BBF186C0001723C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E066180E2BBF1DD90001723C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		E06618102BBF20E10001723C /* RoomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +113,9 @@
 		E06617D02BBEFB460001723C /* Roommate */ = {
 			isa = PBXGroup;
 			children = (
+				E06618052BBF068A0001723C /* Models */,
+				E06618002BBF04150001723C /* Helpers */,
+				E06617FD2BBF03D70001723C /* Networking */,
 				E06617D12BBEFB460001723C /* RoommateApp.swift */,
 				E06617D32BBEFB460001723C /* ContentView.swift */,
 				E06617D52BBEFB470001723C /* Assets.xcassets */,
@@ -127,6 +148,36 @@
 				E06617EF2BBEFB470001723C /* RoommateUITestsLaunchTests.swift */,
 			);
 			path = RoommateUITests;
+			sourceTree = "<group>";
+		};
+		E06617FD2BBF03D70001723C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E06617FE2BBF03E60001723C /* DataManager.swift */,
+				E066180A2BBF0D520001723C /* Endpoints.swift */,
+				E066180E2BBF1DD90001723C /* UserManager.swift */,
+				E06618102BBF20E10001723C /* RoomManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E06618002BBF04150001723C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E06618012BBF04230001723C /* RequestTypes.swift */,
+				E06618032BBF04C10001723C /* QueryObjects.swift */,
+				E066180C2BBF186C0001723C /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E06618052BBF068A0001723C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E06618062BBF06940001723C /* User.swift */,
+				E06618082BBF07240001723C /* Room.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +311,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E06617D42BBEFB460001723C /* ContentView.swift in Sources */,
+				E066180D2BBF186C0001723C /* Extensions.swift in Sources */,
+				E06618042BBF04C10001723C /* QueryObjects.swift in Sources */,
+				E06618092BBF07240001723C /* Room.swift in Sources */,
+				E06618072BBF06940001723C /* User.swift in Sources */,
+				E06617FF2BBF03E60001723C /* DataManager.swift in Sources */,
 				E06617D22BBEFB460001723C /* RoommateApp.swift in Sources */,
+				E066180B2BBF0D520001723C /* Endpoints.swift in Sources */,
+				E066180F2BBF1DD90001723C /* UserManager.swift in Sources */,
+				E06618112BBF20E10001723C /* RoomManager.swift in Sources */,
+				E06618022BBF04230001723C /* RequestTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
