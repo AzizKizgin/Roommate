@@ -25,6 +25,8 @@
 		E066180D2BBF186C0001723C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066180C2BBF186C0001723C /* Extensions.swift */; };
 		E066180F2BBF1DD90001723C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066180E2BBF1DD90001723C /* UserManager.swift */; };
 		E06618112BBF20E10001723C /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06618102BBF20E10001723C /* RoomManager.swift */; };
+		E0F332552BC1B04600FBF9EC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F332542BC1B04600FBF9EC /* RegisterView.swift */; };
+		E0F332572BC1B05100FBF9EC /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F332562BC1B05100FBF9EC /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		E066180C2BBF186C0001723C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E066180E2BBF1DD90001723C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E06618102BBF20E10001723C /* RoomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManager.swift; sourceTree = "<group>"; };
+		E0F332542BC1B04600FBF9EC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		E0F332562BC1B05100FBF9EC /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 		E06617D02BBEFB460001723C /* Roommate */ = {
 			isa = PBXGroup;
 			children = (
+				E0F332512BC1AFEA00FBF9EC /* Views */,
 				E03729302BC09CFA00B6E9B4 /* Protocols */,
 				E06618052BBF068A0001723C /* Models */,
 				E06618002BBF04150001723C /* Helpers */,
@@ -192,6 +197,31 @@
 				E037292E2BC09CA900B6E9B4 /* AppUser.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E0F332512BC1AFEA00FBF9EC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E0F332532BC1AFF900FBF9EC /* Register */,
+				E0F332522BC1AFF000FBF9EC /* Login */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E0F332522BC1AFF000FBF9EC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E0F332532BC1AFF900FBF9EC /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				E0F332542BC1B04600FBF9EC /* RegisterView.swift */,
+				E0F332562BC1B05100FBF9EC /* RegisterViewModel.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,8 +355,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E06617D42BBEFB460001723C /* ContentView.swift in Sources */,
+				E0F332572BC1B05100FBF9EC /* RegisterViewModel.swift in Sources */,
 				E066180D2BBF186C0001723C /* Extensions.swift in Sources */,
 				E06618042BBF04C10001723C /* QueryObjects.swift in Sources */,
+				E0F332552BC1B04600FBF9EC /* RegisterView.swift in Sources */,
 				E06618092BBF07240001723C /* Room.swift in Sources */,
 				E037292F2BC09CA900B6E9B4 /* AppUser.swift in Sources */,
 				E06618072BBF06940001723C /* User.swift in Sources */,
