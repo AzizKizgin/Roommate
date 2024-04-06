@@ -12,8 +12,6 @@ protocol UserProtocol {
     var firstName: String { get set }
     var lastName: String { get set }
     var profilePicture: String? { get set }
-    var rooms: [Room] { get set }
-    var savedRooms: [Room] { get set }
     var createdAt: Date { get set }
     var about: String { get set }
     var age: Int { get set }

@@ -14,8 +14,6 @@ class AppUser: UserProtocol {
     var firstName: String
     var lastName: String
     var profilePicture: String?
-    var rooms: [Room]
-    var savedRooms: [Room]
     var createdAt: Date
     var about: String
     var age: Int
@@ -24,13 +22,11 @@ class AppUser: UserProtocol {
     var email: String
     var token: String
     
-    init(id: String, firstName: String, lastName: String, profilePicture: String? = nil, rooms: [Room], savedRooms: [Room], createdAt: Date, about: String, age: Int, job: String, phoneNumber: String, email: String, token: String) {
+    init(id: String, firstName: String, lastName: String, profilePicture: String? = nil, createdAt: Date, about: String, age: Int, job: String, phoneNumber: String, email: String, token: String) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.profilePicture = profilePicture
-        self.rooms = rooms
-        self.savedRooms = savedRooms
         self.createdAt = createdAt
         self.about = about
         self.age = age
