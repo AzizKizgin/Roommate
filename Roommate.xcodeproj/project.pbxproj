@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E037292F2BC09CA900B6E9B4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037292E2BC09CA900B6E9B4 /* AppUser.swift */; };
+		E03729322BC09D0600B6E9B4 /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03729312BC09D0600B6E9B4 /* UserProtocol.swift */; };
 		E06617D22BBEFB460001723C /* RoommateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06617D12BBEFB460001723C /* RoommateApp.swift */; };
 		E06617D42BBEFB460001723C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06617D32BBEFB460001723C /* ContentView.swift */; };
 		E06617D62BBEFB470001723C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06617D52BBEFB470001723C /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E037292E2BC09CA900B6E9B4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		E03729312BC09D0600B6E9B4 /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
 		E06617CE2BBEFB460001723C /* Roommate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roommate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06617D12BBEFB460001723C /* RoommateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateApp.swift; sourceTree = "<group>"; };
 		E06617D32BBEFB460001723C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E03729302BC09CFA00B6E9B4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E03729312BC09D0600B6E9B4 /* UserProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		E06617C52BBEFB460001723C = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +125,7 @@
 		E06617D02BBEFB460001723C /* Roommate */ = {
 			isa = PBXGroup;
 			children = (
+				E03729302BC09CFA00B6E9B4 /* Protocols */,
 				E06618052BBF068A0001723C /* Models */,
 				E06618002BBF04150001723C /* Helpers */,
 				E06617FD2BBF03D70001723C /* Networking */,
@@ -176,6 +189,7 @@
 			children = (
 				E06618062BBF06940001723C /* User.swift */,
 				E06618082BBF07240001723C /* Room.swift */,
+				E037292E2BC09CA900B6E9B4 /* AppUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -314,9 +328,11 @@
 				E066180D2BBF186C0001723C /* Extensions.swift in Sources */,
 				E06618042BBF04C10001723C /* QueryObjects.swift in Sources */,
 				E06618092BBF07240001723C /* Room.swift in Sources */,
+				E037292F2BC09CA900B6E9B4 /* AppUser.swift in Sources */,
 				E06618072BBF06940001723C /* User.swift in Sources */,
 				E06617FF2BBF03E60001723C /* DataManager.swift in Sources */,
 				E06617D22BBEFB460001723C /* RoommateApp.swift in Sources */,
+				E03729322BC09D0600B6E9B4 /* UserProtocol.swift in Sources */,
 				E066180B2BBF0D520001723C /* Endpoints.swift in Sources */,
 				E066180F2BBF1DD90001723C /* UserManager.swift in Sources */,
 				E06618112BBF20E10001723C /* RoomManager.swift in Sources */,

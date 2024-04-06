@@ -7,24 +7,27 @@
 
 import Foundation
 
-struct User: Identifiable, Decodable {
-    let id: String
-    let firstName: String
-    let lastName: String
-    let profilePicture: String?
-    let rooms: [Room]
-    let savedRooms: [Room]
-    let createdAt: Date
-    let description: String
-    let age: Int
-    let job: String
+struct User: Identifiable, Decodable, UserProtocol {
+    var id: String
+    var firstName: String
+    var lastName: String
+    var profilePicture: String?
+    var rooms: [Room]
+    var savedRooms: [Room]
+    var createdAt: Date
+    var about: String
+    var age: Int
+    var job: String
+    var phoneNumber: String
+    var email: String
+    var token: String?
 }
 
 struct UserUpdateInfo: Encodable {
     let firstName: String
     let lastName: String
     let profilePicture: String?
-    let description: String
+    let about: String
     let age: Int
     let job: String
 }
@@ -35,7 +38,7 @@ struct RoomOwner: Decodable, Identifiable {
     let lastName: String
     let profilePicture: String?
     let createdAt: Date
-    let description: String
+    let about: String
     let age: Int
     let job: String
 }
