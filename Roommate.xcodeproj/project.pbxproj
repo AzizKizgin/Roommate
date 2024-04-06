@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E037292F2BC09CA900B6E9B4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037292E2BC09CA900B6E9B4 /* AppUser.swift */; };
 		E03729322BC09D0600B6E9B4 /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03729312BC09D0600B6E9B4 /* UserProtocol.swift */; };
+		E04E51D42BC1F29C00F71F01 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E51D32BC1F29C00F71F01 /* LoginView.swift */; };
+		E04E51D62BC1F2A800F71F01 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E51D52BC1F2A800F71F01 /* LoginViewModel.swift */; };
 		E06617D22BBEFB460001723C /* RoommateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06617D12BBEFB460001723C /* RoommateApp.swift */; };
 		E06617D42BBEFB460001723C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06617D32BBEFB460001723C /* ContentView.swift */; };
 		E06617D62BBEFB470001723C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06617D52BBEFB470001723C /* Assets.xcassets */; };
@@ -53,6 +55,8 @@
 /* Begin PBXFileReference section */
 		E037292E2BC09CA900B6E9B4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		E03729312BC09D0600B6E9B4 /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
+		E04E51D32BC1F29C00F71F01 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E04E51D52BC1F2A800F71F01 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E06617CE2BBEFB460001723C /* Roommate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roommate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06617D12BBEFB460001723C /* RoommateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateApp.swift; sourceTree = "<group>"; };
 		E06617D32BBEFB460001723C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 		E0F332522BC1AFF000FBF9EC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E04E51D32BC1F29C00F71F01 /* LoginView.swift */,
+				E04E51D52BC1F2A800F71F01 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -400,7 +406,9 @@
 				E0F332622BC1CF8400FBF9EC /* DateInput.swift in Sources */,
 				E066180F2BBF1DD90001723C /* UserManager.swift in Sources */,
 				E06618112BBF20E10001723C /* RoomManager.swift in Sources */,
+				E04E51D42BC1F29C00F71F01 /* LoginView.swift in Sources */,
 				E06618022BBF04230001723C /* RequestTypes.swift in Sources */,
+				E04E51D62BC1F2A800F71F01 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
