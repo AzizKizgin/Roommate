@@ -11,16 +11,6 @@ struct RegisterView: View {
     @StateObject private var registerVM = RegisterViewModel()
     @Environment(\.dismiss) private var dismiss
     
-    func get18YearsAgo() -> Date{
-        let currentDate = Date()
-        let calendar = Calendar.current
-        
-        if let date = calendar.date(byAdding: .year, value: -18, to: currentDate) {
-            return date
-        } else {
-            return .now
-        }
-    }
     var body: some View {
         ScrollView{
             VStack(spacing:15){
