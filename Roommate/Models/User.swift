@@ -24,12 +24,30 @@ struct User: Identifiable, Decodable, UserProtocol {
 }
 
 struct UserUpdateInfo: Encodable {
-    let firstName: String
-    let lastName: String
-    let profilePicture: String?
-    let about: String
+    var firstName: String
+    var lastName: String
+    var profilePicture: String?
+    var about: String
     var birthDate: Date
-    let job: String
+    var job: String
+    
+    init(firstName: String, lastName: String, profilePicture: String? = nil, about: String, birthDate: Date, job: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.profilePicture = profilePicture
+        self.about = about
+        self.birthDate = birthDate
+        self.job = job
+    }
+    
+    init(){
+        self.firstName = ""
+        self.lastName = ""
+        self.profilePicture = nil
+        self.about = ""
+        self.birthDate = .now
+        self.job = ""
+    }
 }
 
 struct RoomOwner: Decodable, Identifiable {
@@ -56,4 +74,14 @@ struct UserRegisterInfo: Encodable {
     var phoneNumber: String
     var job: String
     var birthDate: Date
+    
+    init() {
+        self.email = ""
+        self.password = ""
+        self.firstName = ""
+        self.lastName = ""
+        self.phoneNumber = ""
+        self.job = ""
+        self.birthDate = Utils.get18YearsAgo()
+    }
 }
