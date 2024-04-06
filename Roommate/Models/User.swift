@@ -16,7 +16,7 @@ struct User: Identifiable, Decodable, UserProtocol {
     var savedRooms: [Room]
     var createdAt: Date
     var about: String
-    var age: Int
+    var birthDate: Date
     var job: String
     var phoneNumber: String
     var email: String
@@ -28,7 +28,7 @@ struct UserUpdateInfo: Encodable {
     let lastName: String
     let profilePicture: String?
     let about: String
-    let age: Int
+    var birthDate: Date
     let job: String
 }
 
@@ -39,7 +39,7 @@ struct RoomOwner: Decodable, Identifiable {
     let profilePicture: String?
     let createdAt: Date
     let about: String
-    let age: Int
+    var birthDate: Date
     let job: String
 }
 
@@ -55,5 +55,5 @@ struct UserRegisterInfo: Encodable {
     var lastName: String
     var phoneNumber: String
     var job: String
-    var age: Int
+    var birthDate: Date
 }

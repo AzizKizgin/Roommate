@@ -14,7 +14,7 @@ protocol UserProtocol {
     var profilePicture: String? { get set }
     var createdAt: Date { get set }
     var about: String { get set }
-    var age: Int { get set }
+    var birthDate: Date { get set }
     var job: String { get set }
     var phoneNumber: String { get set }
     var email: String { get set }
