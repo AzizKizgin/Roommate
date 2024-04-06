@@ -6,13 +6,32 @@
 //
 
 import SwiftUI
-
 struct FormButton: View {
+    let title: LocalizedStringKey
+    let onPress: () -> Void
+    var isLoading: Bool = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: onPress, label: {
+            Group{
+                if isLoading{
+                    ProgressView()
+                        .tint(.white)
+                        .scaleEffect(1.4, anchor: .center)
+                }
+                else{
+                    Text(title)
+                        .font(.title3)
+                }
+            }
+            .disabled(isLoading)
+            .frame(maxWidth: .infinity)
+            .frame(height: 35)
+        })
+        .buttonStyle(.borderedProminent)
+        
     }
 }
 
 #Preview {
-    FormButton()
+    FormButton(title: "Login", onPress: {})
 }
