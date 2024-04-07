@@ -13,6 +13,15 @@
 		E04E51D62BC1F2A800F71F01 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E51D52BC1F2A800F71F01 /* LoginViewModel.swift */; };
 		E04E51DA2BC1F97000F71F01 /* GreetingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E51D92BC1F97000F71F01 /* GreetingsView.swift */; };
 		E04E51DC2BC20C0500F71F01 /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E51DB2BC20C0500F71F01 /* PasswordField.swift */; };
+		E059FBBE2BC350D6005AD02C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E059FBBD2BC350D6005AD02C /* HomeView.swift */; };
+		E059FBC02BC350E1005AD02C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E059FBBF2BC350E1005AD02C /* HomeViewModel.swift */; };
+		E059FBC42BC3511B005AD02C /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E059FBC32BC3511B005AD02C /* AccountViewModel.swift */; };
+		E059FBC62BC35126005AD02C /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E059FBC52BC35126005AD02C /* AccountView.swift */; };
+		E059FBCA2BC35191005AD02C /* SavedRoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E059FBC92BC35191005AD02C /* SavedRoomsView.swift */; };
+		E059FBCC2BC351A1005AD02C /* SavedRoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E059FBCB2BC351A1005AD02C /* SavedRoomsViewModel.swift */; };
+		E059FBCF2BC351BC005AD02C /* MessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E059FBCE2BC351BC005AD02C /* MessagesViewModel.swift */; };
+		E059FBD12BC351C3005AD02C /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E059FBD02BC351C3005AD02C /* MessagesView.swift */; };
+		E059FBD32BC35273005AD02C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E059FBD22BC35273005AD02C /* MainView.swift */; };
 		E06617D22BBEFB460001723C /* RoommateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06617D12BBEFB460001723C /* RoommateApp.swift */; };
 		E06617D42BBEFB460001723C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06617D32BBEFB460001723C /* ContentView.swift */; };
 		E06617D62BBEFB470001723C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06617D52BBEFB470001723C /* Assets.xcassets */; };
@@ -61,6 +70,15 @@
 		E04E51D52BC1F2A800F71F01 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E04E51D92BC1F97000F71F01 /* GreetingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsView.swift; sourceTree = "<group>"; };
 		E04E51DB2BC20C0500F71F01 /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
+		E059FBBD2BC350D6005AD02C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E059FBBF2BC350E1005AD02C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E059FBC32BC3511B005AD02C /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		E059FBC52BC35126005AD02C /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		E059FBC92BC35191005AD02C /* SavedRoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRoomsView.swift; sourceTree = "<group>"; };
+		E059FBCB2BC351A1005AD02C /* SavedRoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRoomsViewModel.swift; sourceTree = "<group>"; };
+		E059FBCE2BC351BC005AD02C /* MessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewModel.swift; sourceTree = "<group>"; };
+		E059FBD02BC351C3005AD02C /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		E059FBD22BC35273005AD02C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E06617CE2BBEFB460001723C /* Roommate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roommate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06617D12BBEFB460001723C /* RoommateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateApp.swift; sourceTree = "<group>"; };
 		E06617D32BBEFB460001723C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +138,42 @@
 				E03729312BC09D0600B6E9B4 /* UserProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E059FBBC2BC350C8005AD02C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E059FBBD2BC350D6005AD02C /* HomeView.swift */,
+				E059FBBF2BC350E1005AD02C /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E059FBC22BC35104005AD02C /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				E059FBC32BC3511B005AD02C /* AccountViewModel.swift */,
+				E059FBC52BC35126005AD02C /* AccountView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		E059FBC82BC35176005AD02C /* SavedRooms */ = {
+			isa = PBXGroup;
+			children = (
+				E059FBC92BC35191005AD02C /* SavedRoomsView.swift */,
+				E059FBCB2BC351A1005AD02C /* SavedRoomsViewModel.swift */,
+			);
+			path = SavedRooms;
+			sourceTree = "<group>";
+		};
+		E059FBCD2BC351AA005AD02C /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				E059FBCE2BC351BC005AD02C /* MessagesViewModel.swift */,
+				E059FBD02BC351C3005AD02C /* MessagesView.swift */,
+			);
+			path = Messages;
 			sourceTree = "<group>";
 		};
 		E06617C52BBEFB460001723C = {
@@ -220,8 +274,13 @@
 		E0F332512BC1AFEA00FBF9EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E059FBCD2BC351AA005AD02C /* Messages */,
+				E059FBC82BC35176005AD02C /* SavedRooms */,
+				E059FBC22BC35104005AD02C /* Account */,
+				E059FBBC2BC350C8005AD02C /* Home */,
 				E0F332532BC1AFF900FBF9EC /* Register */,
 				E0F332522BC1AFF000FBF9EC /* Login */,
+				E059FBD22BC35273005AD02C /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -397,11 +456,18 @@
 				E06617D42BBEFB460001723C /* ContentView.swift in Sources */,
 				E0F332572BC1B05100FBF9EC /* RegisterViewModel.swift in Sources */,
 				E066180D2BBF186C0001723C /* Extensions.swift in Sources */,
+				E059FBC02BC350E1005AD02C /* HomeViewModel.swift in Sources */,
 				E06618042BBF04C10001723C /* QueryObjects.swift in Sources */,
+				E059FBCC2BC351A1005AD02C /* SavedRoomsViewModel.swift in Sources */,
+				E059FBCA2BC35191005AD02C /* SavedRoomsView.swift in Sources */,
 				E0F332552BC1B04600FBF9EC /* RegisterView.swift in Sources */,
+				E059FBC62BC35126005AD02C /* AccountView.swift in Sources */,
+				E059FBD32BC35273005AD02C /* MainView.swift in Sources */,
 				E06618092BBF07240001723C /* Room.swift in Sources */,
+				E059FBD12BC351C3005AD02C /* MessagesView.swift in Sources */,
 				E037292F2BC09CA900B6E9B4 /* AppUser.swift in Sources */,
 				E0F3325B2BC1C59F00FBF9EC /* CapsuleTextField.swift in Sources */,
+				E059FBCF2BC351BC005AD02C /* MessagesViewModel.swift in Sources */,
 				E06618072BBF06940001723C /* User.swift in Sources */,
 				E04E51DA2BC1F97000F71F01 /* GreetingsView.swift in Sources */,
 				E0F332602BC1CF6200FBF9EC /* Utils.swift in Sources */,
@@ -415,7 +481,9 @@
 				E066180F2BBF1DD90001723C /* UserManager.swift in Sources */,
 				E06618112BBF20E10001723C /* RoomManager.swift in Sources */,
 				E04E51D42BC1F29C00F71F01 /* LoginView.swift in Sources */,
+				E059FBBE2BC350D6005AD02C /* HomeView.swift in Sources */,
 				E06618022BBF04230001723C /* RequestTypes.swift in Sources */,
+				E059FBC42BC3511B005AD02C /* AccountViewModel.swift in Sources */,
 				E04E51D62BC1F2A800F71F01 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
