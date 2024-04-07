@@ -20,7 +20,7 @@ struct RegisterView: View {
                     .capsuleTextField(icon: "person.circle.fill")
                 TextField("Email", text: $registerVM.user.email)
                     .capsuleTextField(icon: "envelope.circle.fill")
-                DateInput(date: $registerVM.user.birthDate)
+                DateInput(dateText: $registerVM.user.birthDate)
                 TextField("Job", text: $registerVM.user.job)
                     .capsuleTextField(icon: "hammer.circle.fill")
                 TextField("Phone", text: $registerVM.user.phoneNumber)
