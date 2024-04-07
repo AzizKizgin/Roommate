@@ -12,9 +12,9 @@ protocol UserProtocol {
     var firstName: String { get set }
     var lastName: String { get set }
     var profilePicture: String? { get set }
-    var createdAt: Date { get set }
+    var createdAt: String { get set }
     var about: String { get set }
-    var birthDate: Date { get set }
+    var birthDate: String { get set }
     var job: String { get set }
     var phoneNumber: String { get set }
     var email: String { get set }

@@ -14,15 +14,15 @@ class AppUser: UserProtocol {
     var firstName: String
     var lastName: String
     var profilePicture: String?
-    var createdAt: Date
+    var createdAt: String
     var about: String
-    var birthDate: Date
+    var birthDate: String
     var job: String
     var phoneNumber: String
     var email: String
     var token: String
     
-    init(id: String, firstName: String, lastName: String, profilePicture: String? = nil, createdAt: Date, about: String, birthDate: Date, job: String, phoneNumber: String, email: String, token: String) {
+    init(id: String, firstName: String, lastName: String, profilePicture: String? = nil, createdAt: String, about: String, birthDate: String, job: String, phoneNumber: String, email: String, token: String) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName

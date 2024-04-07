@@ -14,9 +14,9 @@ struct User: Identifiable, Decodable, UserProtocol {
     var profilePicture: String?
     var rooms: [Room]
     var savedRooms: [Room]
-    var createdAt: Date
+    var createdAt: String
     var about: String
-    var birthDate: Date
+    var birthDate: String
     var job: String
     var phoneNumber: String
     var email: String
@@ -28,10 +28,10 @@ struct UserUpdateInfo: Encodable {
     var lastName: String
     var profilePicture: String?
     var about: String
-    var birthDate: Date
+    var birthDate: String
     var job: String
     
-    init(firstName: String, lastName: String, profilePicture: String? = nil, about: String, birthDate: Date, job: String) {
+    init(firstName: String, lastName: String, profilePicture: String? = nil, about: String, birthDate: String, job: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.profilePicture = profilePicture
@@ -45,7 +45,7 @@ struct UserUpdateInfo: Encodable {
         self.lastName = ""
         self.profilePicture = nil
         self.about = ""
-        self.birthDate = .now
+        self.birthDate = Utils.dateToString(date: Utils.get18YearsAgo())
         self.job = ""
     }
 }
@@ -55,9 +55,9 @@ struct RoomOwner: Decodable, Identifiable {
     let firstName: String
     let lastName: String
     let profilePicture: String?
-    let createdAt: Date
+    let createdAt: String
     let about: String
-    var birthDate: Date
+    var birthDate: String
     let job: String
 }
 
@@ -76,7 +76,7 @@ struct UserRegisterInfo: Encodable {
     var job: String
     var birthDate: String
     
-    init(id: UUID = UUID(), email: String, password: String, firstName: String, lastName: String, phoneNumber: String, job: String, birthDate: Date) {
+    init(id: UUID = UUID(), email: String, password: String, firstName: String, lastName: String, phoneNumber: String, job: String, birthDate: String) {
         self.id = id
         self.email = email
         self.password = password
@@ -84,7 +84,7 @@ struct UserRegisterInfo: Encodable {
         self.lastName = lastName
         self.phoneNumber = phoneNumber
         self.job = job
-        self.birthDate = Utils.dateToString(date: birthDate)
+        self.birthDate = birthDate
     }
     
     init() {
