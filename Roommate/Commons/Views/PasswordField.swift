@@ -8,11 +8,34 @@
 import SwiftUI
 
 struct PasswordField: View {
+    let titleKey: String
+    @Binding var text: String
+    @State private var showContent: Bool = false
+    
+    init(_ titleKey: String, text: Binding<String>) {
+        self.titleKey = titleKey
+        self._text = text
+    }
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Group {
+                if showContent {
+                    TextField(titleKey, text: $text)
+                }
+                else {
+                    SecureField(titleKey, text: $text)
+                }
+            }
+            Image(systemName:showContent ? "eye.fill": "eye.slash.fill")
+                .foregroundStyle(.accent)
+                .onTapGesture {
+                    showContent.toggle()
+                }
+        }
+        .capsuleTextField(icon: "lock.circle.fill")
     }
 }
 
 #Preview {
-    PasswordField()
+    PasswordField("Password", text: .constant("Password"))
 }
