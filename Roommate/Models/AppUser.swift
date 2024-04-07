@@ -35,4 +35,18 @@ class AppUser: UserProtocol {
         self.email = email
         self.token = token
     }
+    
+    init(from user: User){
+        self.id = user.id
+        self.firstName = user.firstName
+        self.lastName = user.lastName
+        self.profilePicture = user.profilePicture
+        self.createdAt = user.createdAt
+        self.about = user.about
+        self.birthDate = user.birthDate
+        self.job = user.job
+        self.phoneNumber = user.phoneNumber
+        self.email = user.email
+        self.token = user.token!
+    }
 }
