@@ -8,11 +8,46 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Environment(\.modelContext) private var modelContext
+    @StateObject private var loginVM = LoginViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView{
+            ZStack{
+                Spacer().containerRelativeFrame([.horizontal, .vertical])
+                VStack(spacing:15){
+                    GreetingsView()
+                    Spacer()
+                    TextField("Email", text: $loginVM.loginInfo.email)
+                        .capsuleTextField(icon: "envelope.circle.fill")
+                    PasswordField("Password", text: $loginVM.loginInfo.password)
+                    FormButton(title: "Login", onPress: onPress, isLoading: loginVM.isLoading )
+                    NavigationLink("Need Account?") {
+                        RegisterView()
+                    }
+                    Spacer()
+                }
+                .padding()
+                .alert(loginVM.errorText, isPresented: $loginVM.showError){
+                    Button("Okay", role: .cancel) {}
+                }
+            }
+        }
+    }
+}
+
+extension LoginView {
+    private func onPress() {
+        loginVM.login { user in
+            if let user {
+                let currentUser = AppUser(from: user)
+                modelContext.insert(currentUser)
+            }
+        }
     }
 }
 
 #Preview {
-    LoginView()
+    NavigationStack{
+        LoginView()
+    }
 }
