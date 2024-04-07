@@ -17,6 +17,8 @@ struct CapsuleTextField: ViewModifier {
                 .font(.title2)
                 .foregroundStyle(Color.accentColor)
             content
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
         }
         .padding()
         .background{
