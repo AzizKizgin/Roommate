@@ -15,8 +15,8 @@ struct Room: Identifiable, Decodable {
     let images: [String]
     let size: Double
     let description: String
-    let createdAt: Date
-    let updatedAt: Date?
+    let createdAt: String
+    let updatedAt: String?
     let owner: RoomOwner
     let savedByCount: Int
     let address: RoomAddress
