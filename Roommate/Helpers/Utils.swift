@@ -40,7 +40,7 @@ struct Utils {
     
     // MARK: - Checking Password Validation
     static func isPasswordValid(for password: String) -> Bool {
-        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+        let passwordRegex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\\W).{8,}$"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return passwordTest.evaluate(with: password)
     }
@@ -50,5 +50,16 @@ struct Utils {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: email)
+    }
+    
+    static func checkIsNight() -> Bool{
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: currentDate)
+        
+        if hour > 6 && hour < 17 {
+            return false
+        }
+        return true
     }
 }
