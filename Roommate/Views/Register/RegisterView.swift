@@ -29,7 +29,7 @@ struct RegisterView: View {
                     .capsuleTextField(icon: "lock.circle.fill")
                 TextField("Confirm Password", text: $registerVM.confirmPassword)
                     .capsuleTextField(icon: "lock.circle.fill")
-                FormButton(title: "Register", onPress: registerVM.registerUser)
+                FormButton(title: "Register", onPress: registerVM.registerUser, isLoading: registerVM.isLoading)
                     .padding(.vertical)
             }
             .padding()
