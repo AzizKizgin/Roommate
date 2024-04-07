@@ -67,13 +67,25 @@ struct UserLoginInfo: Encodable {
 }
 
 struct UserRegisterInfo: Encodable {
+    var id = UUID()
     var email: String
     var password: String
     var firstName: String
     var lastName: String
     var phoneNumber: String
     var job: String
-    var birthDate: Date
+    var birthDate: String
+    
+    init(id: UUID = UUID(), email: String, password: String, firstName: String, lastName: String, phoneNumber: String, job: String, birthDate: Date) {
+        self.id = id
+        self.email = email
+        self.password = password
+        self.firstName = firstName
+        self.lastName = lastName
+        self.phoneNumber = phoneNumber
+        self.job = job
+        self.birthDate = Utils.dateToString(date: birthDate)
+    }
     
     init() {
         self.email = ""
@@ -82,6 +94,7 @@ struct UserRegisterInfo: Encodable {
         self.lastName = ""
         self.phoneNumber = ""
         self.job = ""
-        self.birthDate = Utils.get18YearsAgo()
+        self.birthDate = "01.01.2006"
     }
+    
 }
