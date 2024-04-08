@@ -38,6 +38,9 @@
 		E066180D2BBF186C0001723C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066180C2BBF186C0001723C /* Extensions.swift */; };
 		E066180F2BBF1DD90001723C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066180E2BBF1DD90001723C /* UserManager.swift */; };
 		E06618112BBF20E10001723C /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06618102BBF20E10001723C /* RoomManager.swift */; };
+		E074EDD92BC4327900346D14 /* TabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E074EDD82BC4327900346D14 /* TabScreen.swift */; };
+		E0E328D92BC4A42300839513 /* UserSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E328D82BC4A42300839513 /* UserSettingsView.swift */; };
+		E0E328DB2BC4B0A500839513 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E328DA2BC4B0A500839513 /* ChangePasswordView.swift */; };
 		E0F332552BC1B04600FBF9EC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F332542BC1B04600FBF9EC /* RegisterView.swift */; };
 		E0F332572BC1B05100FBF9EC /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F332562BC1B05100FBF9EC /* RegisterViewModel.swift */; };
 		E0F3325B2BC1C59F00FBF9EC /* CapsuleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3325A2BC1C59F00FBF9EC /* CapsuleTextField.swift */; };
@@ -99,6 +102,9 @@
 		E066180C2BBF186C0001723C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E066180E2BBF1DD90001723C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E06618102BBF20E10001723C /* RoomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManager.swift; sourceTree = "<group>"; };
+		E074EDD82BC4327900346D14 /* TabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreen.swift; sourceTree = "<group>"; };
+		E0E328D82BC4A42300839513 /* UserSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsView.swift; sourceTree = "<group>"; };
+		E0E328DA2BC4B0A500839513 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		E0F332542BC1B04600FBF9EC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E0F332562BC1B05100FBF9EC /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		E0F3325A2BC1C59F00FBF9EC /* CapsuleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTextField.swift; sourceTree = "<group>"; };
@@ -154,6 +160,8 @@
 			children = (
 				E059FBC32BC3511B005AD02C /* AccountViewModel.swift */,
 				E059FBC52BC35126005AD02C /* AccountView.swift */,
+				E0E328D82BC4A42300839513 /* UserSettingsView.swift */,
+				E0E328DA2BC4B0A500839513 /* ChangePasswordView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -271,16 +279,25 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E074EDD72BC4323A00346D14 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				E059FBD22BC35273005AD02C /* MainView.swift */,
+				E074EDD82BC4327900346D14 /* TabScreen.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
 		E0F332512BC1AFEA00FBF9EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E074EDD72BC4323A00346D14 /* MainView */,
 				E059FBCD2BC351AA005AD02C /* Messages */,
 				E059FBC82BC35176005AD02C /* SavedRooms */,
 				E059FBC22BC35104005AD02C /* Account */,
 				E059FBBC2BC350C8005AD02C /* Home */,
 				E0F332532BC1AFF900FBF9EC /* Register */,
 				E0F332522BC1AFF000FBF9EC /* Login */,
-				E059FBD22BC35273005AD02C /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -459,6 +476,7 @@
 				E059FBC02BC350E1005AD02C /* HomeViewModel.swift in Sources */,
 				E06618042BBF04C10001723C /* QueryObjects.swift in Sources */,
 				E059FBCC2BC351A1005AD02C /* SavedRoomsViewModel.swift in Sources */,
+				E0E328D92BC4A42300839513 /* UserSettingsView.swift in Sources */,
 				E059FBCA2BC35191005AD02C /* SavedRoomsView.swift in Sources */,
 				E0F332552BC1B04600FBF9EC /* RegisterView.swift in Sources */,
 				E059FBC62BC35126005AD02C /* AccountView.swift in Sources */,
@@ -474,8 +492,10 @@
 				E0F332642BC1D25300FBF9EC /* FormButton.swift in Sources */,
 				E06617FF2BBF03E60001723C /* DataManager.swift in Sources */,
 				E06617D22BBEFB460001723C /* RoommateApp.swift in Sources */,
+				E0E328DB2BC4B0A500839513 /* ChangePasswordView.swift in Sources */,
 				E03729322BC09D0600B6E9B4 /* UserProtocol.swift in Sources */,
 				E04E51DC2BC20C0500F71F01 /* PasswordField.swift in Sources */,
+				E074EDD92BC4327900346D14 /* TabScreen.swift in Sources */,
 				E066180B2BBF0D520001723C /* Endpoints.swift in Sources */,
 				E0F332622BC1CF8400FBF9EC /* DateInput.swift in Sources */,
 				E066180F2BBF1DD90001723C /* UserManager.swift in Sources */,
