@@ -8,36 +8,39 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var selectedTab: Int = 0
+    @State private var selectedTab: TabScreen = TabScreen.Home
     var body: some View {
         TabView(selection: $selectedTab) {
             HomeView()
-                .tag(0)
+                .tag(TabScreen.Home)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
                 
             SavedRoomsView()
-                .tag(1)
+                .tag(TabScreen.Saved)
                 .tabItem {
                     Label("Saved", systemImage: "bookmark")
                 }
             MessagesView()
-                .tag(2)
+                .tag(TabScreen.Messages)
                 .tabItem {
                     Label("Messages", systemImage: "message")
                 }
             AccountView()
-                .tag(3)
+                .tag(TabScreen.Account)
                 .tabItem {
                     Label("Account", systemImage: "person")
                 }
         }
-        .toolbar{
-            ToolbarItem(placement: .topBarTrailing) {
-                Image(systemName: "plus.square.fill")
+        .toolbar {
+            switch selectedTab {
+            case TabScreen.Home:
+                Image(systemName: "plus.circle.fill")
                     .font(.title2)
                     .foregroundStyle(.accent)
+            default:
+                EmptyView()
             }
         }
     }
