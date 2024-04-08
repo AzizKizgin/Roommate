@@ -30,14 +30,16 @@ struct UserUpdateInfo: Encodable {
     var about: String
     var birthDate: String
     var job: String
+    var phoneNumber: String
     
-    init(firstName: String, lastName: String, profilePicture: String? = nil, about: String, birthDate: String, job: String) {
+    init(firstName: String, lastName: String, profilePicture: String? = nil, about: String, birthDate: String, job: String, phoneNumber: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.profilePicture = profilePicture
         self.about = about
         self.birthDate = birthDate
         self.job = job
+        self.phoneNumber = phoneNumber
     }
     
     init(){
@@ -47,6 +49,7 @@ struct UserUpdateInfo: Encodable {
         self.about = ""
         self.birthDate = Utils.dateToString(date: Utils.get18YearsAgo())
         self.job = ""
+        self.phoneNumber = ""
     }
 }
 
@@ -67,7 +70,6 @@ struct UserLoginInfo: Encodable {
 }
 
 struct UserRegisterInfo: Encodable {
-    var id = UUID()
     var email: String
     var password: String
     var firstName: String
@@ -76,8 +78,7 @@ struct UserRegisterInfo: Encodable {
     var job: String
     var birthDate: String
     
-    init(id: UUID = UUID(), email: String, password: String, firstName: String, lastName: String, phoneNumber: String, job: String, birthDate: String) {
-        self.id = id
+    init(email: String, password: String, firstName: String, lastName: String, phoneNumber: String, job: String, birthDate: String) {
         self.email = email
         self.password = password
         self.firstName = firstName
@@ -97,4 +98,9 @@ struct UserRegisterInfo: Encodable {
         self.birthDate = "01.01.2006"
     }
     
+}
+
+struct ChangePasswordInfo: Encodable {
+    var oldPassword: String
+    var newPassword: String
 }

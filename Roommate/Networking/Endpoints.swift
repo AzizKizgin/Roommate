@@ -66,4 +66,10 @@ enum Endpoints {
         let url = URL(string: urlString)!
         return url
     }
+    
+    public static func getChangePasswordURL() -> URL {
+        let urlString = "\(userURL)/change-password"
+        let url = URL(string: urlString)!
+        return url
+    }
 }
