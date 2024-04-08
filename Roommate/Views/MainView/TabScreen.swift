@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+enum TabScreen {
+    case Home
+    case Saved
+    case Messages
+    case Account
+}
