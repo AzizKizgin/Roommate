@@ -16,6 +16,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
+                
             SavedRoomsView()
                 .tag(1)
                 .tabItem {
@@ -29,12 +30,21 @@ struct MainView: View {
             AccountView()
                 .tag(3)
                 .tabItem {
-                    Label("Settings", systemImage: "person")
+                    Label("Account", systemImage: "person")
                 }
+        }
+        .toolbar{
+            ToolbarItem(placement: .topBarTrailing) {
+                Image(systemName: "plus.square.fill")
+                    .font(.title2)
+                    .foregroundStyle(.accent)
+            }
         }
     }
 }
 
 #Preview {
-    MainView()
+    NavigationStack{
+        MainView()
+    }
 }
