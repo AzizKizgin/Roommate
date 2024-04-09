@@ -287,7 +287,6 @@
 			isa = PBXGroup;
 			children = (
 				E059FBD22BC35273005AD02C /* MainView.swift */,
-				E074EDD82BC4327900346D14 /* TabScreen.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -303,6 +302,7 @@
 		E0EC356B2BC5856000559568 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				E074EDD82BC4327900346D14 /* TabScreen.swift */,
 				E06618012BBF04230001723C /* RequestTypes.swift */,
 				E0EC356C2BC5856B00559568 /* ImageSize.swift */,
 			);
