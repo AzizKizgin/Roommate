@@ -11,6 +11,7 @@ import SwiftData
 struct AccountView: View {
     @StateObject private var accountVM = AccountViewModel()
     @Query private var users: [AppUser]
+    @Environment(\.modelContext) private var context
     @AppStorage("isDark") private var isDark: Bool = false
     @AppStorage("isNotificationAllow") private var isNotificationAllow: Bool = false
     var body: some View {
@@ -22,7 +23,7 @@ struct AccountView: View {
                     Label("Username", systemImage: "person.fill")
                 }
                 NavigationLink {
-                    ChangePasswordView()
+                    ChangePasswordView(accountVM: accountVM)
                 } label: {
                     Label("Change Password", systemImage: "lock.circle.fill")
                 }
@@ -49,7 +50,7 @@ struct AccountView: View {
                 })
             }
             Section{
-                Button(action: {}) {
+                Button(action:{ accountVM.showLogoutAlert.toggle()}) {
                     HStack{
                         Label("Exit", systemImage: "figure.run.circle.fill")
                         Spacer()
@@ -60,14 +61,28 @@ struct AccountView: View {
                 .foregroundStyle(.red)
             }
         }
+        .alert("Do you want to logout?", isPresented: $accountVM.showLogoutAlert){
+            Button("Yes", role: .destructive) {
+                accountVM.logout { isLogout in
+                    if isLogout {
+                        try? context.delete(model: AppUser.self)
+                    }
+                }
+            }
+            Button("No", role: .cancel) {}
+        }
+        .alert("No user found", isPresented: $accountVM.showNoUserAlert){
+            Button("Okay", role: .cancel) {
+                try? context.delete(model: AppUser.self)
+            }
+        }
         .onAppear{
             DispatchQueue.main.async {
                 if let appUser = users.first {
                     self.accountVM.setUser(user: appUser)
                 }
     //            else {
-    //                accountVm.errorText = "No user found"
-    //                accountVm.showError.toggle()
+    //                accountVm.showNoUserAlert.toggle()
     //            }
             }
         }
