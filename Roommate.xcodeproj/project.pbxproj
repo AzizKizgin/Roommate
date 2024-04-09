@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00DE2972BC4B9A40006AF8A /* ProfilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00DE2962BC4B9A40006AF8A /* ProfilePicture.swift */; };
 		E037292F2BC09CA900B6E9B4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037292E2BC09CA900B6E9B4 /* AppUser.swift */; };
 		E03729322BC09D0600B6E9B4 /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03729312BC09D0600B6E9B4 /* UserProtocol.swift */; };
 		E04E51D42BC1F29C00F71F01 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E51D32BC1F29C00F71F01 /* LoginView.swift */; };
@@ -35,12 +36,13 @@
 		E06618072BBF06940001723C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06618062BBF06940001723C /* User.swift */; };
 		E06618092BBF07240001723C /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06618082BBF07240001723C /* Room.swift */; };
 		E066180B2BBF0D520001723C /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066180A2BBF0D520001723C /* Endpoints.swift */; };
-		E066180D2BBF186C0001723C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066180C2BBF186C0001723C /* Extensions.swift */; };
 		E066180F2BBF1DD90001723C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066180E2BBF1DD90001723C /* UserManager.swift */; };
 		E06618112BBF20E10001723C /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06618102BBF20E10001723C /* RoomManager.swift */; };
 		E074EDD92BC4327900346D14 /* TabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E074EDD82BC4327900346D14 /* TabScreen.swift */; };
 		E0E328D92BC4A42300839513 /* UserSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E328D82BC4A42300839513 /* UserSettingsView.swift */; };
 		E0E328DB2BC4B0A500839513 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E328DA2BC4B0A500839513 /* ChangePasswordView.swift */; };
+		E0EC35682BC57E0600559568 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EC35672BC57E0600559568 /* Encodable.swift */; };
+		E0EC356D2BC5856B00559568 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EC356C2BC5856B00559568 /* ImageSize.swift */; };
 		E0F332552BC1B04600FBF9EC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F332542BC1B04600FBF9EC /* RegisterView.swift */; };
 		E0F332572BC1B05100FBF9EC /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F332562BC1B05100FBF9EC /* RegisterViewModel.swift */; };
 		E0F3325B2BC1C59F00FBF9EC /* CapsuleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3325A2BC1C59F00FBF9EC /* CapsuleTextField.swift */; };
@@ -67,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E00DE2962BC4B9A40006AF8A /* ProfilePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicture.swift; sourceTree = "<group>"; };
 		E037292E2BC09CA900B6E9B4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		E03729312BC09D0600B6E9B4 /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
 		E04E51D32BC1F29C00F71F01 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -99,12 +102,13 @@
 		E06618062BBF06940001723C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E06618082BBF07240001723C /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		E066180A2BBF0D520001723C /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
-		E066180C2BBF186C0001723C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E066180E2BBF1DD90001723C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E06618102BBF20E10001723C /* RoomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManager.swift; sourceTree = "<group>"; };
 		E074EDD82BC4327900346D14 /* TabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreen.swift; sourceTree = "<group>"; };
 		E0E328D82BC4A42300839513 /* UserSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsView.swift; sourceTree = "<group>"; };
 		E0E328DA2BC4B0A500839513 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		E0EC35672BC57E0600559568 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		E0EC356C2BC5856B00559568 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
 		E0F332542BC1B04600FBF9EC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E0F332562BC1B05100FBF9EC /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		E0F3325A2BC1C59F00FBF9EC /* CapsuleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTextField.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 		E06617D02BBEFB460001723C /* Roommate */ = {
 			isa = PBXGroup;
 			children = (
+				E0EC35662BC57DF500559568 /* Extensions */,
 				E0F332582BC1C58000FBF9EC /* Commons */,
 				E0F332512BC1AFEA00FBF9EC /* Views */,
 				E03729302BC09CFA00B6E9B4 /* Protocols */,
@@ -261,9 +266,8 @@
 		E06618002BBF04150001723C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E06618012BBF04230001723C /* RequestTypes.swift */,
+				E0EC356B2BC5856000559568 /* Enums */,
 				E06618032BBF04C10001723C /* QueryObjects.swift */,
-				E066180C2BBF186C0001723C /* Extensions.swift */,
 				E0F3325F2BC1CF6200FBF9EC /* Utils.swift */,
 			);
 			path = Helpers;
@@ -286,6 +290,23 @@
 				E074EDD82BC4327900346D14 /* TabScreen.swift */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		E0EC35662BC57DF500559568 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E0EC35672BC57E0600559568 /* Encodable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E0EC356B2BC5856000559568 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E06618012BBF04230001723C /* RequestTypes.swift */,
+				E0EC356C2BC5856B00559568 /* ImageSize.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		E0F332512BC1AFEA00FBF9EC /* Views */ = {
@@ -336,6 +357,7 @@
 				E0F332612BC1CF8400FBF9EC /* DateInput.swift */,
 				E0F332632BC1D25300FBF9EC /* FormButton.swift */,
 				E04E51DB2BC20C0500F71F01 /* PasswordField.swift */,
+				E00DE2962BC4B9A40006AF8A /* ProfilePicture.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -472,14 +494,15 @@
 			files = (
 				E06617D42BBEFB460001723C /* ContentView.swift in Sources */,
 				E0F332572BC1B05100FBF9EC /* RegisterViewModel.swift in Sources */,
-				E066180D2BBF186C0001723C /* Extensions.swift in Sources */,
 				E059FBC02BC350E1005AD02C /* HomeViewModel.swift in Sources */,
+				E00DE2972BC4B9A40006AF8A /* ProfilePicture.swift in Sources */,
 				E06618042BBF04C10001723C /* QueryObjects.swift in Sources */,
 				E059FBCC2BC351A1005AD02C /* SavedRoomsViewModel.swift in Sources */,
 				E0E328D92BC4A42300839513 /* UserSettingsView.swift in Sources */,
 				E059FBCA2BC35191005AD02C /* SavedRoomsView.swift in Sources */,
 				E0F332552BC1B04600FBF9EC /* RegisterView.swift in Sources */,
 				E059FBC62BC35126005AD02C /* AccountView.swift in Sources */,
+				E0EC356D2BC5856B00559568 /* ImageSize.swift in Sources */,
 				E059FBD32BC35273005AD02C /* MainView.swift in Sources */,
 				E06618092BBF07240001723C /* Room.swift in Sources */,
 				E059FBD12BC351C3005AD02C /* MessagesView.swift in Sources */,
@@ -495,6 +518,7 @@
 				E0E328DB2BC4B0A500839513 /* ChangePasswordView.swift in Sources */,
 				E03729322BC09D0600B6E9B4 /* UserProtocol.swift in Sources */,
 				E04E51DC2BC20C0500F71F01 /* PasswordField.swift in Sources */,
+				E0EC35682BC57E0600559568 /* Encodable.swift in Sources */,
 				E074EDD92BC4327900346D14 /* TabScreen.swift in Sources */,
 				E066180B2BBF0D520001723C /* Endpoints.swift in Sources */,
 				E0F332622BC1CF8400FBF9EC /* DateInput.swift in Sources */,
