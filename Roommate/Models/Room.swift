@@ -17,8 +17,8 @@ struct Room: Identifiable, Decodable {
     let description: String
     let createdAt: String
     let updatedAt: String?
-    let owner: RoomOwner
-    let savedByCount: Int
+    let owner: RoomUser
+    let savedBy: [RoomUser]
     let address: RoomAddress
 }
 

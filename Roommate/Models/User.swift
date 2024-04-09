@@ -63,7 +63,7 @@ struct UserUpdateInfo: Encodable {
     }
 }
 
-struct RoomOwner: Decodable, Identifiable {
+struct RoomUser: Codable, Identifiable {
     let id: String
     let firstName: String
     let lastName: String
