@@ -17,25 +17,19 @@ struct UserPhotoPicker: View {
     private let imageManager = ImageManager.shared
     var body: some View {
         Button(action: {showPicker.toggle()}, label: {
-            if isLoading || isImageLoading {
-                ProgressView()
-                    .controlSize(.large)
-                    .tint(.accent)
-            }
-            else {
-                ProfilePicture(image: image, imageSize: .large)
-                    .overlay(alignment: .topTrailing) {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .frame(width: 50)
-                            .scaledToFit()
-                            .foregroundStyle(.white)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(.accent, lineWidth: 4))
-                            .padding(.trailing)
-                          
-                    }
-            }
+            ProfilePicture(image: image, imageSize: .large,isLoading: isLoading)
+                .overlay(alignment: .topTrailing) {
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .frame(width: 50)
+                        .scaledToFit()
+                        .foregroundStyle(.white)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(.accent, lineWidth: 4))
+                        .padding(.trailing)
+                      
+                }
+       
         })
         .buttonStyle(.plain)
         .alert("Cannot convert image", isPresented: $showError){

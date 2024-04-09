@@ -10,12 +10,20 @@ import SwiftUI
 struct ProfilePicture: View {
     let image: String
     var imageSize: ImageSize = .small
+    var isLoading: Bool = false
     var size: CGFloat {
         imageSize == .large ? 180: 100
     }
+    @State private var uiImage: UIImage?
+    @State private var isImageLoading: Bool = false
     var body: some View {
         VStack{
-            if let data = Data(base64Encoded: image), let uiImage = UIImage(data: data) {
+            if isLoading || isImageLoading {
+                ProgressView()
+                    .controlSize(.large)
+                    .tint(.accent)
+            }
+            if let uiImage {
                 Image(uiImage: uiImage)
                     .resizable()
                     .foregroundStyle(.accent)
@@ -31,6 +39,15 @@ struct ProfilePicture: View {
             }
         }
         .frame(width: size, height: size)
+        .onAppear{
+            isImageLoading = true
+            DispatchQueue.main.async {
+                if let data = Data(base64Encoded: image), let uiImage = UIImage(data: data) {
+                    self.uiImage = uiImage
+                }
+                isImageLoading = false
+            }
+        }
     }
 }
 
