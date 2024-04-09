@@ -1,8 +1,8 @@
 //
-//  Extensions.swift
+//  Encodable.swift
 //  Roommate
 //
-//  Created by Aziz Kızgın on 4.04.2024.
+//  Created by Aziz Kızgın on 9.04.2024.
 //
 
 import Foundation
