@@ -129,7 +129,7 @@ class UserManager {
         DataManager.shared.sendRequest(
             for: Endpoints.getChangePasswordURL(),
             data: changePasswordInfo.toData(),
-            requestType: .get
+            requestType: .post
         ) {(result: Result<[User],Error>) in
             switch result {
             case .success(let data):
