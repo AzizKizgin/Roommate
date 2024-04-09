@@ -9,6 +9,7 @@ import PhotosUI
 
 struct UserPhotoPicker: View {
     @Binding var image: String
+    var isImageLoading = false
     @State private var userPickerItem: PhotosPickerItem?
     @State private var isLoading: Bool = false
     @State private var showPicker: Bool = false
@@ -16,7 +17,7 @@ struct UserPhotoPicker: View {
     private let imageManager = ImageManager.shared
     var body: some View {
         Button(action: {showPicker.toggle()}, label: {
-            if isLoading {
+            if isLoading || isImageLoading {
                 ProgressView()
                     .controlSize(.large)
                     .tint(.accent)
