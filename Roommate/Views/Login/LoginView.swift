@@ -41,6 +41,7 @@ extension LoginView {
             if let user {
                 let currentUser = AppUser(from: user)
                 modelContext.insert(currentUser)
+                UserDefaults.standard.setValue(currentUser.token, forKey: "token")
             }
         }
     }
