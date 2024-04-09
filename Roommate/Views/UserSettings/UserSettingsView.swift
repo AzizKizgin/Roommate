@@ -29,7 +29,7 @@ struct UserSettingsView: View {
                 TextField("About", text: $accountVm.updateInfo.about, axis: .vertical)
                     .lineLimit(5...10)
                     .capsuleTextField(icon: "info.circle.fill")
-                FormButton(title: "Save", onPress: updateUser)
+                FormButton(title: "Save", onPress: updateUser,isLoading: accountVm.isLoading)
             }
             .padding()
             .alert(accountVm.errorText, isPresented: $accountVm.showError){
