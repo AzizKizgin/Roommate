@@ -43,6 +43,8 @@
 		E0E328DB2BC4B0A500839513 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E328DA2BC4B0A500839513 /* ChangePasswordView.swift */; };
 		E0EC35682BC57E0600559568 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EC35672BC57E0600559568 /* Encodable.swift */; };
 		E0EC356D2BC5856B00559568 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EC356C2BC5856B00559568 /* ImageSize.swift */; };
+		E0EC35722BC58AF200559568 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EC35712BC58AF200559568 /* ImageManager.swift */; };
+		E0EC35752BC58F1800559568 /* UserPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EC35742BC58F1800559568 /* UserPhotoPicker.swift */; };
 		E0F332552BC1B04600FBF9EC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F332542BC1B04600FBF9EC /* RegisterView.swift */; };
 		E0F332572BC1B05100FBF9EC /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F332562BC1B05100FBF9EC /* RegisterViewModel.swift */; };
 		E0F3325B2BC1C59F00FBF9EC /* CapsuleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3325A2BC1C59F00FBF9EC /* CapsuleTextField.swift */; };
@@ -109,6 +111,8 @@
 		E0E328DA2BC4B0A500839513 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		E0EC35672BC57E0600559568 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		E0EC356C2BC5856B00559568 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
+		E0EC35712BC58AF200559568 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		E0EC35742BC58F1800559568 /* UserPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoPicker.swift; sourceTree = "<group>"; };
 		E0F332542BC1B04600FBF9EC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E0F332562BC1B05100FBF9EC /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		E0F3325A2BC1C59F00FBF9EC /* CapsuleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTextField.swift; sourceTree = "<group>"; };
@@ -164,7 +168,6 @@
 			children = (
 				E059FBC32BC3511B005AD02C /* AccountViewModel.swift */,
 				E059FBC52BC35126005AD02C /* AccountView.swift */,
-				E0E328D82BC4A42300839513 /* UserSettingsView.swift */,
 				E0E328DA2BC4B0A500839513 /* ChangePasswordView.swift */,
 			);
 			path = Account;
@@ -211,6 +214,7 @@
 		E06617D02BBEFB460001723C /* Roommate */ = {
 			isa = PBXGroup;
 			children = (
+				E0EC35702BC58ADF00559568 /* Managers */,
 				E0EC35662BC57DF500559568 /* Extensions */,
 				E0F332582BC1C58000FBF9EC /* Commons */,
 				E0F332512BC1AFEA00FBF9EC /* Views */,
@@ -309,9 +313,27 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		E0EC35702BC58ADF00559568 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E0EC35712BC58AF200559568 /* ImageManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E0EC35732BC58EEB00559568 /* UserSettings */ = {
+			isa = PBXGroup;
+			children = (
+				E0E328D82BC4A42300839513 /* UserSettingsView.swift */,
+				E0EC35742BC58F1800559568 /* UserPhotoPicker.swift */,
+			);
+			path = UserSettings;
+			sourceTree = "<group>";
+		};
 		E0F332512BC1AFEA00FBF9EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E0EC35732BC58EEB00559568 /* UserSettings */,
 				E074EDD72BC4323A00346D14 /* MainView */,
 				E059FBCD2BC351AA005AD02C /* Messages */,
 				E059FBC82BC35176005AD02C /* SavedRooms */,
@@ -505,6 +527,7 @@
 				E0EC356D2BC5856B00559568 /* ImageSize.swift in Sources */,
 				E059FBD32BC35273005AD02C /* MainView.swift in Sources */,
 				E06618092BBF07240001723C /* Room.swift in Sources */,
+				E0EC35752BC58F1800559568 /* UserPhotoPicker.swift in Sources */,
 				E059FBD12BC351C3005AD02C /* MessagesView.swift in Sources */,
 				E037292F2BC09CA900B6E9B4 /* AppUser.swift in Sources */,
 				E0F3325B2BC1C59F00FBF9EC /* CapsuleTextField.swift in Sources */,
@@ -513,6 +536,7 @@
 				E04E51DA2BC1F97000F71F01 /* GreetingsView.swift in Sources */,
 				E0F332602BC1CF6200FBF9EC /* Utils.swift in Sources */,
 				E0F332642BC1D25300FBF9EC /* FormButton.swift in Sources */,
+				E0EC35722BC58AF200559568 /* ImageManager.swift in Sources */,
 				E06617FF2BBF03E60001723C /* DataManager.swift in Sources */,
 				E06617D22BBEFB460001723C /* RoommateApp.swift in Sources */,
 				E0E328DB2BC4B0A500839513 /* ChangePasswordView.swift in Sources */,

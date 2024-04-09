@@ -11,7 +11,7 @@ struct User: Identifiable, Decodable, UserProtocol {
     var id: String
     var firstName: String
     var lastName: String
-    var profilePicture: String?
+    var profilePicture: String
     var rooms: [Room]
     var savedRooms: [Room]
     var createdAt: String
@@ -26,13 +26,13 @@ struct User: Identifiable, Decodable, UserProtocol {
 struct UserUpdateInfo: Encodable {
     var firstName: String
     var lastName: String
-    var profilePicture: String?
+    var profilePicture: String
     var about: String
     var birthDate: String
     var job: String
     var phoneNumber: String
     
-    init(firstName: String, lastName: String, profilePicture: String? = nil, about: String, birthDate: String, job: String, phoneNumber: String) {
+    init(firstName: String, lastName: String, profilePicture: String = "", about: String, birthDate: String, job: String, phoneNumber: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.profilePicture = profilePicture
@@ -42,10 +42,20 @@ struct UserUpdateInfo: Encodable {
         self.phoneNumber = phoneNumber
     }
     
+    init(from user: UserProtocol){
+        self.about = user.about
+        self.birthDate = user.birthDate
+        self.firstName = user.firstName
+        self.lastName = user.lastName
+        self.job = user.job
+        self.phoneNumber = user.phoneNumber
+        self.profilePicture = user.profilePicture
+    }
+    
     init(){
         self.firstName = ""
         self.lastName = ""
-        self.profilePicture = nil
+        self.profilePicture = ""
         self.about = ""
         self.birthDate = Utils.dateToString(date: Utils.get18YearsAgo())
         self.job = ""
@@ -57,7 +67,7 @@ struct RoomOwner: Decodable, Identifiable {
     let id: String
     let firstName: String
     let lastName: String
-    let profilePicture: String?
+    let profilePicture: String
     let createdAt: String
     let about: String
     var birthDate: String

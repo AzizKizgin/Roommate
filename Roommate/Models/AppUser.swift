@@ -13,7 +13,7 @@ class AppUser: UserProtocol {
     var id: String
     var firstName: String
     var lastName: String
-    var profilePicture: String?
+    var profilePicture: String
     var createdAt: String
     var about: String
     var birthDate: String
@@ -22,7 +22,7 @@ class AppUser: UserProtocol {
     var email: String
     var token: String
     
-    init(id: String, firstName: String, lastName: String, profilePicture: String? = nil, createdAt: String, about: String, birthDate: String, job: String, phoneNumber: String, email: String, token: String) {
+    init(id: String, firstName: String, lastName: String, profilePicture: String = "", createdAt: String, about: String, birthDate: String, job: String, phoneNumber: String, email: String, token: String) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
@@ -47,6 +47,20 @@ class AppUser: UserProtocol {
         self.job = user.job
         self.phoneNumber = user.phoneNumber
         self.email = user.email
-        self.token = user.token!
+        self.token = user.token ?? UserDefaults.standard.string(forKey: "token") ?? ""
+    }
+    
+    func update(from user: User){
+        self.id = user.id
+        self.firstName = user.firstName
+        self.lastName = user.lastName
+        self.profilePicture = user.profilePicture
+        self.createdAt = user.createdAt
+        self.about = user.about
+        self.birthDate = user.birthDate
+        self.job = user.job
+        self.phoneNumber = user.phoneNumber
+        self.email = user.email
+        self.token = user.token ?? UserDefaults.standard.string(forKey: "token") ?? ""
     }
 }
