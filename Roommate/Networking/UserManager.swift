@@ -125,12 +125,12 @@ class UserManager {
         }
     }
     
-    func changePassword(changePasswordInfo: ChangePasswordInfo, completion: @escaping (Result<[User],Error>) -> Void) {
+    func changePassword(changePasswordInfo: ChangePasswordInfo, completion: @escaping (Result<User,Error>) -> Void) {
         DataManager.shared.sendRequest(
             for: Endpoints.getChangePasswordURL(),
             data: changePasswordInfo.toData(),
             requestType: .post
-        ) {(result: Result<[User],Error>) in
+        ) {(result: Result<User,Error>) in
             switch result {
             case .success(let data):
                 completion(.success(data))
