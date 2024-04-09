@@ -11,13 +11,12 @@ import SwiftData
 struct UserSettingsView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
-    @State private var isLoading: Bool = true
     @Query private var users: [AppUser]
     @ObservedObject var accountVm: AccountViewModel
     var body: some View {
         ScrollView {
             VStack(spacing: 15){
-                UserPhotoPicker(image: $accountVm.updateInfo.profilePicture,isImageLoading: isLoading)
+                UserPhotoPicker(image: $accountVm.updateInfo.profilePicture)
                 TextField("FirstName", text: $accountVm.updateInfo.firstName)
                     .capsuleTextField(icon: "person.circle.fill")
                 TextField("LastName", text: $accountVm.updateInfo.lastName)
@@ -38,18 +37,6 @@ struct UserSettingsView: View {
             }
             .alert("Your info updated", isPresented: $accountVm.isSuccess){
                 Button("Okay", role: .cancel) {dismiss()}
-            }
-        }
-        .onAppear{
-            DispatchQueue.main.async {
-                if let appUser = users.first {
-                    self.accountVm.setUser(user: appUser)
-                }
-    //            else {
-    //                accountVm.errorText = "No user found"
-    //                accountVm.showError.toggle()
-    //            }
-                self.isLoading = false
             }
         }
     }

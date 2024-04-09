@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AccountView: View {
     @StateObject private var accountVM = AccountViewModel()
+    @Query private var users: [AppUser]
     @AppStorage("isDark") private var isDark: Bool = false
     @AppStorage("isNotificationAllow") private var isNotificationAllow: Bool = false
     var body: some View {
@@ -56,6 +58,17 @@ struct AccountView: View {
                     }
                 }
                 .foregroundStyle(.red)
+            }
+        }
+        .onAppear{
+            DispatchQueue.main.async {
+                if let appUser = users.first {
+                    self.accountVM.setUser(user: appUser)
+                }
+    //            else {
+    //                accountVm.errorText = "No user found"
+    //                accountVm.showError.toggle()
+    //            }
             }
         }
         .navigationTitle("Account")
