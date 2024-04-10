@@ -7,19 +7,19 @@
 
 import Foundation
 
-struct Room: Identifiable, Decodable {
-    let id: Int
-    let price: Double
-    let roomCount: Int
-    let bathCount: Int
-    let images: [String]
-    let size: Double
-    let description: String
-    let createdAt: String
-    let updatedAt: String?
-    let owner: RoomUser
-    let savedBy: [RoomUser]
-    let address: RoomAddress
+struct Room: Identifiable, Decodable, RoomProtocol {
+    var id: Int
+    var price: Double
+    var roomCount: Int
+    var bathCount: Int
+    var images: [String]
+    var size: Double
+    var about: String
+    var createdAt: String
+    var updatedAt: String?
+    var owner: RoomUser
+    var savedBy: [RoomUser]
+    var address: RoomAddress
 }
 
 struct RoomUpsertInfo: Encodable {
@@ -28,7 +28,7 @@ struct RoomUpsertInfo: Encodable {
     var bathCount: Int
     var images: [String]
     var size: Double
-    var description: String
+    var about: String
     var address: RoomAddress
 }
 

@@ -13,6 +13,7 @@ struct RoommateApp: App {
     var modelContainer: ModelContainer = {
         let schema = Schema([
             AppUser.self,
+            SavedRoom.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema)
 
