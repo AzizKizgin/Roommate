@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct SearchField: View {
+    @Binding var text: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 0){
+            Image(systemName: text.isEmpty ? "magnifyingglass" : "multiply")
+                .frame(width: 50)
+                .foregroundStyle(.accent)
+                .font(.title3)
+                .onTapGesture {
+                    if !text.isEmpty {
+                        text = ""
+                    }
+                }
+            TextField("", text: $text, prompt: Text("Search...").foregroundStyle(.gray))
+                .padding(.vertical)
+        }
+        .background(.gray.opacity(0.4))
+        .clipShape(.rect(cornerRadius: 10))
     }
 }
 
 #Preview {
-    SearchField()
+    SearchField(text: .constant(""))
 }
