@@ -65,7 +65,7 @@ struct Utils {
     }
     
     static func getAddressFromLatLong(latitude: Double, longitude: Double, completion: @escaping (RoomAddress?) -> Void) {
-        var geocoder = CLGeocoder()
+        let geocoder = CLGeocoder()
          geocoder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)){adress , _  in
              if let placemark = adress?.first {
                  let buildingNo = placemark.subThoroughfare ?? ""
