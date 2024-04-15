@@ -17,9 +17,9 @@ struct LoginView: View {
                 VStack(spacing:15){
                     GreetingsView()
                     Spacer()
-                    TextField("Email", text: $loginVM.loginInfo.email)
-                        .capsuleTextField(icon: "envelope.circle.fill")
-                    PasswordField("Password", text: $loginVM.loginInfo.password)
+                    FormInput("Email", text: $loginVM.loginInfo.email, icon: "envelope.circle.fill")
+                    FormInput("Password", text: $loginVM.loginInfo.password, icon: "lock.circle.fill")
+                        .secureText()
                     FormButton(title: "Login", onPress: onPress, isLoading: loginVM.isLoading )
                     NavigationLink("Need Account?") {
                         RegisterView()

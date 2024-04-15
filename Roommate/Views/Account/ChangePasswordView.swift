@@ -15,9 +15,12 @@ struct ChangePasswordView: View {
             ZStack{
                 Spacer().containerRelativeFrame([.horizontal, .vertical])
                 VStack(spacing: 15) {
-                    PasswordField("Old Password", text: $accountVM.changePasswordInfo.oldPassword)
-                    PasswordField("New Password", text: $accountVM.changePasswordInfo.newPassword)
-                    PasswordField("Confirm New Password", text: $accountVM.confirmPassword)
+                    FormInput("Old Password", text: $accountVM.changePasswordInfo.oldPassword, icon: "lock.circle.fill")
+                        .secureText()
+                    FormInput("New Password", text: $accountVM.changePasswordInfo.newPassword, icon: "lock.circle.fill")
+                        .secureText()
+                    FormInput("Confirm New Password", text: $accountVM.confirmPassword, icon: "lock.circle.fill")
+                        .secureText()
                     FormButton(title: "Change Password", onPress: accountVM.updatePassword, isLoading: accountVM.isLoading)
                 }
                 .padding()

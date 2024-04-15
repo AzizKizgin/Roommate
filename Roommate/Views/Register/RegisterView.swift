@@ -14,21 +14,14 @@ struct RegisterView: View {
     var body: some View {
         ScrollView{
             VStack(spacing:15){
-                TextField("First Name", text: $registerVM.user.firstName)
-                    .capsuleTextField(icon: "person.circle.fill")
-                TextField("Last Name", text: $registerVM.user.lastName)
-                    .capsuleTextField(icon: "person.circle.fill")
-                TextField("Email", text: $registerVM.user.email)
-                    .capsuleTextField(icon: "envelope.circle.fill")
+                FormInput("First Name", text: $registerVM.user.firstName, icon: "person.circle.fill")
+                FormInput("Last Name", text: $registerVM.user.lastName, icon: "person.circle.fill")
+                FormInput("Email", text: $registerVM.user.email, icon: "envelope.circle.fill")
                 DateInput(dateText: $registerVM.user.birthDate)
-                TextField("Job", text: $registerVM.user.job)
-                    .capsuleTextField(icon: "hammer.circle.fill")
-                TextField("Phone", text: $registerVM.user.phoneNumber)
-                    .capsuleTextField(icon: "phone.circle.fill")
-                TextField("Password", text: $registerVM.user.password)
-                    .capsuleTextField(icon: "lock.circle.fill")
-                TextField("Confirm Password", text: $registerVM.confirmPassword)
-                    .capsuleTextField(icon: "lock.circle.fill")
+                FormInput("Job", text: $registerVM.user.job, icon: "hammer.circle.fill")
+                FormInput("Phone", text: $registerVM.user.phoneNumber, icon: "phone.circle.fill")
+                FormInput("Password", text: $registerVM.user.password, icon: "lock.circle.fill")
+                FormInput("Confirm Password", text: $registerVM.confirmPassword, icon: "lock.circle.fill")
                 FormButton(title: "Register", onPress: registerVM.registerUser, isLoading: registerVM.isLoading)
                     .padding(.vertical)
             }

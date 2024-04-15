@@ -15,14 +15,26 @@
 import SwiftUI
 
 struct DateInput: View {
+    @AppStorage("isDark") private var isDark: Bool = false
     @State private var showCalendar: Bool = false
     @State private var date: Date = Date()
     @Binding var dateText: String
     
     var body: some View {
-        TextField("Birth Date", text: .constant(dateText))
-            .disabled(true)
-            .capsuleTextField(icon: "calendar.circle.fill")
+        HStack(alignment:.top){
+            Image(systemName: "calendar.circle.fill")
+                .font(.title3)
+                .foregroundStyle(Color.accentColor)
+            TextField("Birth Date", text: .constant(dateText))
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+                .disabled(true)
+        }
+            .padding()
+            .background{
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .foregroundStyle(.gray.opacity(isDark ? 0.25: 0.15))
+            }
             .onTapGesture {
                 showCalendar.toggle()
             }
