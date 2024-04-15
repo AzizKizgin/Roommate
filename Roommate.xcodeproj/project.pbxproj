@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E00DE2972BC4B9A40006AF8A /* ProfilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00DE2962BC4B9A40006AF8A /* ProfilePicture.swift */; };
+		E01566DB2BCC8FDF0037A960 /* RoomPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01566DA2BCC8FDF0037A960 /* RoomPhotoPicker.swift */; };
+		E01566DD2BCC9C080037A960 /* CreateRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01566DC2BCC9C080037A960 /* CreateRoomView.swift */; };
 		E037292F2BC09CA900B6E9B4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037292E2BC09CA900B6E9B4 /* AppUser.swift */; };
 		E03729322BC09D0600B6E9B4 /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03729312BC09D0600B6E9B4 /* UserProtocol.swift */; };
 		E04E51D42BC1F29C00F71F01 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E51D32BC1F29C00F71F01 /* LoginView.swift */; };
@@ -41,6 +43,8 @@
 		E074EDD92BC4327900346D14 /* TabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E074EDD82BC4327900346D14 /* TabScreen.swift */; };
 		E0A3C8632BC6080F00D488B0 /* RoomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A3C8622BC6080F00D488B0 /* RoomProtocol.swift */; };
 		E0A3C8672BC6089800D488B0 /* SavedRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A3C8662BC6089800D488B0 /* SavedRoom.swift */; };
+		E0B6297F2BCB20330053B718 /* RoomCreateLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B6297E2BCB20330053B718 /* RoomCreateLocationView.swift */; };
+		E0CD1E5B2BCC8A6A0054EC53 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CD1E5A2BCC8A6A0054EC53 /* SearchField.swift */; };
 		E0E328D92BC4A42300839513 /* UserSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E328D82BC4A42300839513 /* UserSettingsView.swift */; };
 		E0E328DB2BC4B0A500839513 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E328DA2BC4B0A500839513 /* ChangePasswordView.swift */; };
 		E0EC35682BC57E0600559568 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EC35672BC57E0600559568 /* Encodable.swift */; };
@@ -53,6 +57,8 @@
 		E0F332602BC1CF6200FBF9EC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3325F2BC1CF6200FBF9EC /* Utils.swift */; };
 		E0F332622BC1CF8400FBF9EC /* DateInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F332612BC1CF8400FBF9EC /* DateInput.swift */; };
 		E0F332642BC1D25300FBF9EC /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F332632BC1D25300FBF9EC /* FormButton.swift */; };
+		E0FCC4142BCDA02B0002AF67 /* RoomCreateDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCC4132BCDA02B0002AF67 /* RoomCreateDetailsView.swift */; };
+		E0FCC4182BCDA9090002AF67 /* FormInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCC4172BCDA9090002AF67 /* FormInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +80,8 @@
 
 /* Begin PBXFileReference section */
 		E00DE2962BC4B9A40006AF8A /* ProfilePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicture.swift; sourceTree = "<group>"; };
+		E01566DA2BCC8FDF0037A960 /* RoomPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPhotoPicker.swift; sourceTree = "<group>"; };
+		E01566DC2BCC9C080037A960 /* CreateRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomView.swift; sourceTree = "<group>"; };
 		E037292E2BC09CA900B6E9B4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		E03729312BC09D0600B6E9B4 /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
 		E04E51D32BC1F29C00F71F01 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -111,6 +119,8 @@
 		E074EDD82BC4327900346D14 /* TabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreen.swift; sourceTree = "<group>"; };
 		E0A3C8622BC6080F00D488B0 /* RoomProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomProtocol.swift; sourceTree = "<group>"; };
 		E0A3C8662BC6089800D488B0 /* SavedRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRoom.swift; sourceTree = "<group>"; };
+		E0B6297E2BCB20330053B718 /* RoomCreateLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCreateLocationView.swift; sourceTree = "<group>"; };
+		E0CD1E5A2BCC8A6A0054EC53 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		E0E328D82BC4A42300839513 /* UserSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsView.swift; sourceTree = "<group>"; };
 		E0E328DA2BC4B0A500839513 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		E0EC35672BC57E0600559568 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
@@ -123,6 +133,8 @@
 		E0F3325F2BC1CF6200FBF9EC /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		E0F332612BC1CF8400FBF9EC /* DateInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInput.swift; sourceTree = "<group>"; };
 		E0F332632BC1D25300FBF9EC /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
+		E0FCC4132BCDA02B0002AF67 /* RoomCreateDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCreateDetailsView.swift; sourceTree = "<group>"; };
+		E0FCC4172BCDA9090002AF67 /* FormInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +313,17 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
+		E0B6297A2BCB1F3E0053B718 /* CreateRoom */ = {
+			isa = PBXGroup;
+			children = (
+				E0B6297E2BCB20330053B718 /* RoomCreateLocationView.swift */,
+				E01566DA2BCC8FDF0037A960 /* RoomPhotoPicker.swift */,
+				E01566DC2BCC9C080037A960 /* CreateRoomView.swift */,
+				E0FCC4132BCDA02B0002AF67 /* RoomCreateDetailsView.swift */,
+			);
+			path = CreateRoom;
+			sourceTree = "<group>";
+		};
 		E0EC35662BC57DF500559568 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +362,7 @@
 		E0F332512BC1AFEA00FBF9EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E0B6297A2BCB1F3E0053B718 /* CreateRoom */,
 				E0EC35732BC58EEB00559568 /* UserSettings */,
 				E074EDD72BC4323A00346D14 /* MainView */,
 				E059FBCD2BC351AA005AD02C /* Messages */,
@@ -386,6 +410,8 @@
 				E0F332632BC1D25300FBF9EC /* FormButton.swift */,
 				E04E51DB2BC20C0500F71F01 /* PasswordField.swift */,
 				E00DE2962BC4B9A40006AF8A /* ProfilePicture.swift */,
+				E0CD1E5A2BCC8A6A0054EC53 /* SearchField.swift */,
+				E0FCC4172BCDA9090002AF67 /* FormInput.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -522,11 +548,14 @@
 			files = (
 				E06617D42BBEFB460001723C /* ContentView.swift in Sources */,
 				E0F332572BC1B05100FBF9EC /* RegisterViewModel.swift in Sources */,
+				E0FCC4182BCDA9090002AF67 /* FormInput.swift in Sources */,
 				E059FBC02BC350E1005AD02C /* HomeViewModel.swift in Sources */,
 				E00DE2972BC4B9A40006AF8A /* ProfilePicture.swift in Sources */,
 				E06618042BBF04C10001723C /* QueryObjects.swift in Sources */,
+				E01566DB2BCC8FDF0037A960 /* RoomPhotoPicker.swift in Sources */,
 				E059FBCC2BC351A1005AD02C /* SavedRoomsViewModel.swift in Sources */,
 				E0E328D92BC4A42300839513 /* UserSettingsView.swift in Sources */,
+				E0FCC4142BCDA02B0002AF67 /* RoomCreateDetailsView.swift in Sources */,
 				E059FBCA2BC35191005AD02C /* SavedRoomsView.swift in Sources */,
 				E0F332552BC1B04600FBF9EC /* RegisterView.swift in Sources */,
 				E059FBC62BC35126005AD02C /* AccountView.swift in Sources */,
@@ -548,14 +577,17 @@
 				E06617D22BBEFB460001723C /* RoommateApp.swift in Sources */,
 				E0E328DB2BC4B0A500839513 /* ChangePasswordView.swift in Sources */,
 				E03729322BC09D0600B6E9B4 /* UserProtocol.swift in Sources */,
+				E0B6297F2BCB20330053B718 /* RoomCreateLocationView.swift in Sources */,
 				E04E51DC2BC20C0500F71F01 /* PasswordField.swift in Sources */,
 				E0EC35682BC57E0600559568 /* Encodable.swift in Sources */,
 				E074EDD92BC4327900346D14 /* TabScreen.swift in Sources */,
+				E0CD1E5B2BCC8A6A0054EC53 /* SearchField.swift in Sources */,
 				E066180B2BBF0D520001723C /* Endpoints.swift in Sources */,
 				E0F332622BC1CF8400FBF9EC /* DateInput.swift in Sources */,
 				E066180F2BBF1DD90001723C /* UserManager.swift in Sources */,
 				E06618112BBF20E10001723C /* RoomManager.swift in Sources */,
 				E04E51D42BC1F29C00F71F01 /* LoginView.swift in Sources */,
+				E01566DD2BCC9C080037A960 /* CreateRoomView.swift in Sources */,
 				E059FBBE2BC350D6005AD02C /* HomeView.swift in Sources */,
 				E0A3C8632BC6080F00D488B0 /* RoomProtocol.swift in Sources */,
 				E06618022BBF04230001723C /* RequestTypes.swift in Sources */,
@@ -724,6 +756,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need to get your location for our features";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need to get your location for our features";
+				INFOPLIST_KEY_NSLocationUsageDescription = "We need to get your location for our features";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to get your location for our features";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -762,6 +798,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need to get your location for our features";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need to get your location for our features";
+				INFOPLIST_KEY_NSLocationUsageDescription = "We need to get your location for our features";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to get your location for our features";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
