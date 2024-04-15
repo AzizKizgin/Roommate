@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 struct Utils {
     static func dateToString(date: Date) -> String {
         let dateFormatter = DateFormatter()
@@ -61,5 +62,22 @@ struct Utils {
             return false
         }
         return true
+    }
+    
+    static func getAddressFromLatLong(latitude: Double, longitude: Double, completion: @escaping (RoomAddress?) -> Void) {
+        var geocoder = CLGeocoder()
+         geocoder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)){adress , _  in
+             if let placemark = adress?.first {
+                 let buildingNo = placemark.subThoroughfare ?? ""
+                 let town = placemark.locality ?? ""
+                 let city = placemark.administrativeArea ?? ""
+                 let postalCode = placemark.postalCode ?? ""
+                 let street = placemark.thoroughfare ?? ""
+                 let country = placemark.country ?? ""
+                 let roomAddress = RoomAddress(street: street, city: city, town: town, country: country, buldingNo: buildingNo, apartmentNo: "", zipCode: postalCode, latitude: latitude, longitude: longitude)
+                 completion(roomAddress)
+             }
+         }
+        completion(nil)
     }
 }
