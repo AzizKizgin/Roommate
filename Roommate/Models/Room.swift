@@ -35,7 +35,10 @@ struct RoomUpsertInfo: Encodable {
 struct RoomAddress: Codable {
     let street: String
     let city: String
-    let state: String
+    let town: String
+    let country: String
+    let buldingNo: String
+    let apartmentNo: String
     let zipCode: String
     let latitude: Double
     let longitude: Double
