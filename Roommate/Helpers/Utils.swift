@@ -64,20 +64,23 @@ struct Utils {
         return true
     }
     
-    static func getAddressFromLatLong(latitude: Double, longitude: Double, completion: @escaping (RoomAddress?) -> Void) {
+    static func getAddressFromLatLong(coordinate: CLLocationCoordinate2D, completion: @escaping (RoomAddress?) -> Void) {
         let geocoder = CLGeocoder()
-         geocoder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)){adress , _  in
-             if let placemark = adress?.first {
-                 let buildingNo = placemark.subThoroughfare ?? ""
-                 let town = placemark.locality ?? ""
-                 let city = placemark.administrativeArea ?? ""
-                 let postalCode = placemark.postalCode ?? ""
-                 let street = placemark.thoroughfare ?? ""
-                 let country = placemark.country ?? ""
-                 let roomAddress = RoomAddress(street: street, city: city, town: town, country: country, buldingNo: buildingNo, apartmentNo: "", zipCode: postalCode, latitude: latitude, longitude: longitude)
-                 completion(roomAddress)
-             }
-         }
-        completion(nil)
+        geocoder.reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)){adress , error  in
+            if let error {
+                completion(nil)
+                return
+            }
+            if let placemark = adress?.first {
+                let buildingNo = placemark.subThoroughfare ?? ""
+                let town = placemark.locality ?? ""
+                let city = placemark.administrativeArea ?? ""
+                let postalCode = placemark.postalCode ?? ""
+                let street = placemark.thoroughfare ?? ""
+                let country = placemark.country ?? ""
+                let roomAddress = RoomAddress(street: street, city: city, town: town, country: country, buildingNo: buildingNo, apartmentNo: "", zipCode: postalCode, latitude: coordinate.latitude, longitude: coordinate.longitude)
+                completion(roomAddress)
+            }
+        }
     }
 }
