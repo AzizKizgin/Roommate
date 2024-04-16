@@ -57,6 +57,8 @@
 		E0F332642BC1D25300FBF9EC /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F332632BC1D25300FBF9EC /* FormButton.swift */; };
 		E0FCC4142BCDA02B0002AF67 /* RoomCreateDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCC4132BCDA02B0002AF67 /* RoomCreateDetailsView.swift */; };
 		E0FCC4182BCDA9090002AF67 /* FormInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCC4172BCDA9090002AF67 /* FormInput.swift */; };
+		E0FCC41A2BCDC10D0002AF67 /* CreateRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCC4192BCDC10D0002AF67 /* CreateRoomViewModel.swift */; };
+		E0FCC41C2BCDC3170002AF67 /* CreateRoomScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCC41B2BCDC3170002AF67 /* CreateRoomScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,8 @@
 		E0F332632BC1D25300FBF9EC /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
 		E0FCC4132BCDA02B0002AF67 /* RoomCreateDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCreateDetailsView.swift; sourceTree = "<group>"; };
 		E0FCC4172BCDA9090002AF67 /* FormInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInput.swift; sourceTree = "<group>"; };
+		E0FCC4192BCDC10D0002AF67 /* CreateRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewModel.swift; sourceTree = "<group>"; };
+		E0FCC41B2BCDC3170002AF67 /* CreateRoomScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +320,7 @@
 				E01566DA2BCC8FDF0037A960 /* RoomPhotoPicker.swift */,
 				E01566DC2BCC9C080037A960 /* CreateRoomView.swift */,
 				E0FCC4132BCDA02B0002AF67 /* RoomCreateDetailsView.swift */,
+				E0FCC4192BCDC10D0002AF67 /* CreateRoomViewModel.swift */,
 			);
 			path = CreateRoom;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				E074EDD82BC4327900346D14 /* TabScreen.swift */,
 				E06618012BBF04230001723C /* RequestTypes.swift */,
 				E0EC356C2BC5856B00559568 /* ImageSize.swift */,
+				E0FCC41B2BCDC3170002AF67 /* CreateRoomScreen.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -541,6 +547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E06617D42BBEFB460001723C /* ContentView.swift in Sources */,
+				E0FCC41A2BCDC10D0002AF67 /* CreateRoomViewModel.swift in Sources */,
 				E0F332572BC1B05100FBF9EC /* RegisterViewModel.swift in Sources */,
 				E0FCC4182BCDA9090002AF67 /* FormInput.swift in Sources */,
 				E059FBC02BC350E1005AD02C /* HomeViewModel.swift in Sources */,
@@ -553,6 +560,7 @@
 				E059FBCA2BC35191005AD02C /* SavedRoomsView.swift in Sources */,
 				E0F332552BC1B04600FBF9EC /* RegisterView.swift in Sources */,
 				E059FBC62BC35126005AD02C /* AccountView.swift in Sources */,
+				E0FCC41C2BCDC3170002AF67 /* CreateRoomScreen.swift in Sources */,
 				E0EC356D2BC5856B00559568 /* ImageSize.swift in Sources */,
 				E059FBD32BC35273005AD02C /* MainView.swift in Sources */,
 				E06618092BBF07240001723C /* Room.swift in Sources */,
