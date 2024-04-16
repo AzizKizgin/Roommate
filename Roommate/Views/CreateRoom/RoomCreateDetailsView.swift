@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RoomCreateDetailsView: View {
+    @Bindable var createRoomVM: CreateRoomViewModel
     var body: some View {
         ScrollView{
             VStack(spacing: 50){
@@ -15,18 +16,21 @@ struct RoomCreateDetailsView: View {
                     Text("Address")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundStyle(.accent)
-                    FormInput("Street", text: .constant(""), icon: "map.circle.fill")
+                    FormInput("Street", text: $createRoomVM.room.address.street, icon: "map.circle.fill")
                     HStack{
-                        FormInput("Apartment No", text: .constant(""), icon: "map.circle.fill")
-                        FormInput("Building No", text: .constant(""), icon: "map.circle.fill")
+                        FormInput("Floor No", text: $createRoomVM.room.address.apartmentNo, icon: "map.circle.fill")
+                            .keyboardType(.numberPad)
+                        FormInput("Building No", text: $createRoomVM.room.address.buildingNo, icon: "map.circle.fill")
+                            .keyboardType(.numberPad)
                     }
                     HStack{
-                        FormInput("Town", text: .constant(""), icon: "map.circle.fill")
-                        FormInput("ZipCode", text: .constant(""), icon: "map.circle.fill")
+                        FormInput("Town", text: $createRoomVM.room.address.town, icon: "map.circle.fill")
+                        FormInput("ZipCode", text: $createRoomVM.room.address.zipCode, icon: "map.circle.fill")
+                            .keyboardType(.numberPad)
                     }
                     HStack{
-                        FormInput("City", text: .constant(""), icon: "map.circle.fill")
-                        FormInput("Country", text: .constant(""), icon: "map.circle.fill")
+                        FormInput("City", text: $createRoomVM.room.address.city, icon: "map.circle.fill")
+                        FormInput("Country", text: $createRoomVM.room.address.country, icon: "map.circle.fill")
                     }
                 }
                 VStack(spacing: 15){
@@ -34,23 +38,36 @@ struct RoomCreateDetailsView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundStyle(.accent)
                     HStack{
-                        FormInput("Price", text: .constant(""), icon: "turkishlirasign")
-                        FormInput("Size", text: .constant(""), icon: "ruler.fill")
+                        FormInput("Price", text: $createRoomVM.room.price, icon: "turkishlirasign")
+                            .keyboardType(.numberPad)
+                            .keyboardType(.numberPad)
+                        FormInput("Size", text: $createRoomVM.room.size, icon: "ruler.fill")
+                            .keyboardType(.numberPad)
                     }
                     HStack{
-                        FormInput("Room", text: .constant(""), icon: "bed.double.fill")
-                        FormInput("Bath", text: .constant(""), icon: "bathtub.fill")
+                        FormInput("Room Count", text: $createRoomVM.room.roomCount, icon: "bed.double.fill")
+                            .keyboardType(.numberPad)
+                        FormInput("Bath Count", text: $createRoomVM.room.bathCount, icon: "bathtub.fill")
+                            .keyboardType(.numberPad)
                     }
-                    FormInput("About Room", text: .constant(""), icon: "info.circle.fill")
+                    FormInput("About Room", text: $createRoomVM.room.about, icon: "info.circle.fill")
                         .multiline()
                 }
             }
             .padding()
         }
+        .alert(createRoomVM.errorText, isPresented: $createRoomVM.showError){
+            Button("Okay", role: .cancel) {}
+        }
         .toolbar{
             ToolbarItem(placement: .confirmationAction) {
                 Button("Save") {
-                    
+                    self.createRoomVM.saveRoom()
+                }
+            }
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Back") {
+                    self.createRoomVM.goScreen(.photo)
                 }
             }
         }
@@ -59,6 +76,6 @@ struct RoomCreateDetailsView: View {
 
 #Preview {
     NavigationStack{
-        RoomCreateDetailsView()
+        RoomCreateDetailsView(createRoomVM: CreateRoomViewModel())
     }
 }

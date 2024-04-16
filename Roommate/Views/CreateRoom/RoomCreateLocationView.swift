@@ -13,6 +13,7 @@ private let initialLocation: CLLocationCoordinate2D = .init(latitude: 41.015137,
 let initialPosition: MapCameraPosition = .camera(.init(centerCoordinate: initialLocation, distance: 30000))
 
 struct RoomCreateLocationView: View {
+    @Bindable var createRoomVM: CreateRoomViewModel
     @Namespace private var mapScope
     @State private var position: MapCameraPosition = initialPosition
     @State private var searchText: String = ""
@@ -42,8 +43,10 @@ struct RoomCreateLocationView: View {
                 }
             })
             .onTapGesture { screenCoord in
-                if let location = reader.convert(screenCoord, from: .local) {
-                    self.selectedLocation = location
+                Task {
+                    if let location = reader.convert(screenCoord, from: .local) {
+                        self.selectedLocation = location
+                    }
                 }
             }
             .safeAreaInset(edge: .bottom, content: {
@@ -67,21 +70,34 @@ struct RoomCreateLocationView: View {
                 }
             }
             .mapScope(mapScope)
-            .onAppear{
-                UINavigationBar.appearance().backgroundColor = .accent
-                CLLocationManager().requestWhenInUseAuthorization()
-                if CLLocationManager().authorizationStatus == .authorizedWhenInUse {
-                    position = .userLocation(fallback: .automatic)
+            .onAppear {
+                DispatchQueue.global().async {
+                    let locationManager = CLLocationManager()
+                    locationManager.requestWhenInUseAuthorization()
+                    
+                    let latitude = self.createRoomVM.room.address.latitude
+                    let longitude = self.createRoomVM.room.address.longitude
+                    
+                    if latitude != 0.0 && longitude != 0.0 {
+                        selectedLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    }
+                    
+                    if locationManager.authorizationStatus == .authorizedWhenInUse {
+                        position = .userLocation(fallback: .automatic)
+                    }
                 }
             }
             .toolbar{
                 ToolbarItem(placement: .confirmationAction) {
-                    if selectedLocation != nil  {
+                    if let coordinate = selectedLocation, coordinate.latitude != 0.0 && coordinate.longitude != 0.0 {
                         Button("Next") {
- 
+                            self.createRoomVM.setCoordinate(coordinate: coordinate)
                         }
                     }
                 }
+            }
+            .alert(createRoomVM.errorText, isPresented: $createRoomVM.showError){
+                Button("Okay", role: .cancel) {}
             }
             .navigationTitle("Select Location")
             .navigationBarTitleDisplayMode(.inline)
@@ -105,6 +121,6 @@ extension RoomCreateLocationView {
 
 #Preview {
     NavigationStack{
-        RoomCreateLocationView()
+        RoomCreateLocationView(createRoomVM: CreateRoomViewModel())
     }
 }

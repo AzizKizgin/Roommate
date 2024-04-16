@@ -9,9 +9,8 @@ import SwiftUI
 import PhotosUI
 
 struct RoomPhotoPicker: View {
-    @Binding var imageDatas: [Data]
-    @State private var images: [Image] = []
-    @State private var roomPickerItems: [PhotosPickerItem] = []
+    @Bindable var createRoomVM: CreateRoomViewModel
+    @State private var imageDatas: [Data] = []
     @State private var showPicker: Bool = false
 
     var body: some View {
@@ -24,8 +23,8 @@ struct RoomPhotoPicker: View {
             .onAppear {
                 setupAppearance()
             }
-            .photosPicker(isPresented: $showPicker, selection: $roomPickerItems, maxSelectionCount: 4, matching: .images)
-            .onChange(of: roomPickerItems) { _, newItems in
+            .photosPicker(isPresented: $showPicker, selection: $createRoomVM.roomPickerItems, maxSelectionCount: 4, matching: .images)
+            .onChange(of: createRoomVM.roomPickerItems) { _, newItems in
                 Task{
                     await processNewItems(newItems)
                 }
@@ -34,8 +33,31 @@ struct RoomPhotoPicker: View {
         }
         .toolbar{
             ToolbarItem(placement: .confirmationAction) {
-                Button("Next") {
-                    
+                if !createRoomVM.roomPickerItems.isEmpty {
+                    Button("Next") {
+                        Task {
+                            await self.createRoomVM.setImages()
+                        }
+                    }
+                }
+            }
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Back") {
+                    self.createRoomVM.goScreen(.location)
+                }
+            }
+        }
+        .alert(createRoomVM.errorText, isPresented: $createRoomVM.showError){
+            Button("Okay", role: .cancel) {}
+        }
+        .onAppear{
+            if !createRoomVM.room.images.isEmpty {
+                createRoomVM.room.images.forEach { image in
+                    ImageManager.shared.convertStringToImageData(for: image, completion: { data in
+                        if let data {
+                            self.imageDatas.append(data)
+                        }
+                    })
                 }
             }
         }
@@ -43,7 +65,7 @@ struct RoomPhotoPicker: View {
 
     private var photoDisplayView: some View {
         VStack {
-            if images.isEmpty {
+            if imageDatas.isEmpty {
                 emptyPhotoView
             } else {
                 filledPhotoView
@@ -67,12 +89,13 @@ struct RoomPhotoPicker: View {
 
     private var filledPhotoView: some View {
         TabView {
-            ForEach(images.indices, id: \.self) { index in
-                images[index]
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 270)
-
+            ForEach(imageDatas.indices, id: \.self) { index in
+                if let uiImage = UIImage(data: imageDatas[index]) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 270)
+                }
             }
         }
         .tabViewStyle(.page)
@@ -86,12 +109,9 @@ struct RoomPhotoPicker: View {
     }
 
     private func processNewItems(_ newItems: [PhotosPickerItem]) async {
-        images = []
         imageDatas = []
         for item in newItems{
-            if let loadedImage = try? await item.loadTransferable(type: Image.self),
-               let loadedData = try? await item.loadTransferable(type: Data.self) {
-                images.append(loadedImage)
+            if let loadedData = try? await item.loadTransferable(type: Data.self) {
                 imageDatas.append(loadedData)
             }
         }
@@ -105,6 +125,6 @@ private func setupAppearance() {
 
 #Preview {
     NavigationStack{
-        RoomPhotoPicker(imageDatas: .constant([]))
+        RoomPhotoPicker(createRoomVM: CreateRoomViewModel())
     }
 }

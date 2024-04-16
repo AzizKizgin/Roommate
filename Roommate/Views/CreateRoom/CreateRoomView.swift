@@ -8,13 +8,32 @@
 import SwiftUI
 
 struct CreateRoomView: View {
+    var room: Room?
+    @Bindable private var createRoomVM = CreateRoomViewModel()
     var body: some View {
-        NavigationStack{
-            RoomCreateLocationView()
+        Group {
+            switch createRoomVM.screen {
+            case .location:
+                RoomCreateLocationView(createRoomVM: createRoomVM)
+            case .photo:
+                RoomPhotoPicker(createRoomVM: createRoomVM)
+            case .detail:
+                RoomCreateDetailsView(createRoomVM: createRoomVM)
+            }
+        }
+        .onAppear{
+            DispatchQueue.main.async {
+                if let room {
+                    let roomUpdate = RoomUpsertInfo(from: room)
+                    self.createRoomVM.room = roomUpdate
+                }
+            }
         }
     }
 }
 
 #Preview {
-    CreateRoomView()
+    NavigationStack {
+        CreateRoomView()
+    }
 }
