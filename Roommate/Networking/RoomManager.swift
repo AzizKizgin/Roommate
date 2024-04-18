@@ -82,7 +82,7 @@ class RoomManager {
 
     func favoriteRoom(id: Int, completion: @escaping (Result<Room,Error>) -> Void) {
         DataManager.shared.sendRequest(
-            for: Endpoints.getRoomURL(id: id),
+            for: Endpoints.getFavoriteRoomURL(id: id),
             requestType: .post){(result: Result<Room,Error>) in
                 switch result {
                 case .success(let data):

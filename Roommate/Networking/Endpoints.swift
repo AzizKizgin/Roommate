@@ -29,6 +29,12 @@ enum Endpoints {
         return url
     }
     
+    public static func getFavoriteRoomURL(id: Int) -> URL {
+        let urlString = "\(roomURL)/\(id)/favorite"
+        let url = URL(string: urlString)!
+        return url
+    }
+    
     // MARK: - User URLs
     
     public static func getRegisterURL() -> URL {
