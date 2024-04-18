@@ -12,6 +12,8 @@
 		E01566DD2BCC9C080037A960 /* CreateRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01566DC2BCC9C080037A960 /* CreateRoomView.swift */; };
 		E037292F2BC09CA900B6E9B4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037292E2BC09CA900B6E9B4 /* AppUser.swift */; };
 		E03729322BC09D0600B6E9B4 /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03729312BC09D0600B6E9B4 /* UserProtocol.swift */; };
+		E0438E762BCF3FB700660AE6 /* RoomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0438E752BCF3FB700660AE6 /* RoomDetailView.swift */; };
+		E0438E782BCF3FC500660AE6 /* RoomDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0438E772BCF3FC500660AE6 /* RoomDetailViewModel.swift */; };
 		E04E51D42BC1F29C00F71F01 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E51D32BC1F29C00F71F01 /* LoginView.swift */; };
 		E04E51D62BC1F2A800F71F01 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E51D52BC1F2A800F71F01 /* LoginViewModel.swift */; };
 		E04E51DA2BC1F97000F71F01 /* GreetingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E51D92BC1F97000F71F01 /* GreetingsView.swift */; };
@@ -84,6 +86,8 @@
 		E01566DC2BCC9C080037A960 /* CreateRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomView.swift; sourceTree = "<group>"; };
 		E037292E2BC09CA900B6E9B4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		E03729312BC09D0600B6E9B4 /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
+		E0438E752BCF3FB700660AE6 /* RoomDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailView.swift; sourceTree = "<group>"; };
+		E0438E772BCF3FC500660AE6 /* RoomDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailViewModel.swift; sourceTree = "<group>"; };
 		E04E51D32BC1F29C00F71F01 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E04E51D52BC1F2A800F71F01 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E04E51D92BC1F97000F71F01 /* GreetingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsView.swift; sourceTree = "<group>"; };
@@ -169,6 +173,15 @@
 				E0A3C8622BC6080F00D488B0 /* RoomProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E0438E742BCF3F5500660AE6 /* RoomDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E0438E752BCF3FB700660AE6 /* RoomDetailView.swift */,
+				E0438E772BCF3FC500660AE6 /* RoomDetailViewModel.swift */,
+			);
+			path = RoomDetail;
 			sourceTree = "<group>";
 		};
 		E059FBBC2BC350C8005AD02C /* Home */ = {
@@ -364,6 +377,7 @@
 		E0F332512BC1AFEA00FBF9EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E0438E742BCF3F5500660AE6 /* RoomDetail */,
 				E0B6297A2BCB1F3E0053B718 /* CreateRoom */,
 				E0EC35732BC58EEB00559568 /* UserSettings */,
 				E074EDD72BC4323A00346D14 /* MainView */,
@@ -557,6 +571,7 @@
 				E059FBCC2BC351A1005AD02C /* SavedRoomsViewModel.swift in Sources */,
 				E0E328D92BC4A42300839513 /* UserSettingsView.swift in Sources */,
 				E0FCC4142BCDA02B0002AF67 /* RoomCreateDetailsView.swift in Sources */,
+				E0438E782BCF3FC500660AE6 /* RoomDetailViewModel.swift in Sources */,
 				E059FBCA2BC35191005AD02C /* SavedRoomsView.swift in Sources */,
 				E0F332552BC1B04600FBF9EC /* RegisterView.swift in Sources */,
 				E059FBC62BC35126005AD02C /* AccountView.swift in Sources */,
@@ -588,6 +603,7 @@
 				E06618112BBF20E10001723C /* RoomManager.swift in Sources */,
 				E04E51D42BC1F29C00F71F01 /* LoginView.swift in Sources */,
 				E01566DD2BCC9C080037A960 /* CreateRoomView.swift in Sources */,
+				E0438E762BCF3FB700660AE6 /* RoomDetailView.swift in Sources */,
 				E059FBBE2BC350D6005AD02C /* HomeView.swift in Sources */,
 				E0A3C8632BC6080F00D488B0 /* RoomProtocol.swift in Sources */,
 				E06618022BBF04230001723C /* RequestTypes.swift in Sources */,
