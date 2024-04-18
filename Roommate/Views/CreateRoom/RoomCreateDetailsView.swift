@@ -56,13 +56,18 @@ struct RoomCreateDetailsView: View {
             }
             .padding()
         }
+        .navigationBarBackButtonHidden()
         .alert(createRoomVM.errorText, isPresented: $createRoomVM.showError){
             Button("Okay", role: .cancel) {}
         }
         .toolbar{
             ToolbarItem(placement: .confirmationAction) {
-                Button("Save") {
-                    self.createRoomVM.saveRoom()
+                if self.createRoomVM.isLoading {
+                    ProgressView()
+                } else {
+                    Button("Save") {
+                        self.createRoomVM.saveRoom()
+                    }
                 }
             }
             ToolbarItem(placement: .cancellationAction) {
