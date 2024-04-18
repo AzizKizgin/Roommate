@@ -20,9 +20,6 @@ struct RoomPhotoPicker: View {
                 photoDisplayView
             }
             .buttonStyle(.plain)
-            .onAppear {
-                setupAppearance()
-            }
             .photosPicker(isPresented: $showPicker, selection: $createRoomVM.roomPickerItems, maxSelectionCount: 4, matching: .images)
             .onChange(of: createRoomVM.roomPickerItems) { _, newItems in
                 Task{
@@ -31,6 +28,7 @@ struct RoomPhotoPicker: View {
             }
             Spacer()
         }
+        .navigationBarBackButtonHidden()
         .toolbar{
             ToolbarItem(placement: .confirmationAction) {
                 if !createRoomVM.roomPickerItems.isEmpty {
@@ -101,11 +99,6 @@ struct RoomPhotoPicker: View {
         .tabViewStyle(.page)
         .indexViewStyle(.page(backgroundDisplayMode: .always))
         .frame(height: 270)
-    }
-
-    private func setupAppearance() {
-        UIPageControl.appearance().currentPageIndicatorTintColor = .accent
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor.accent.withAlphaComponent(0.2)
     }
 
     private func processNewItems(_ newItems: [PhotosPickerItem]) async {
