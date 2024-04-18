@@ -63,7 +63,9 @@ import SwiftUI
     }
     
     func saveRoom() {
+        isLoading = true
         guard validateRoom() else {
+            isLoading = false
             return
         }
         RoomManager.shared.createRoom(roomData: self.room) { [weak self] result in
