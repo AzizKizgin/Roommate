@@ -18,6 +18,7 @@ struct LoginView: View {
                     GreetingsView()
                     Spacer()
                     FormInput("Email", text: $loginVM.loginInfo.email, icon: "envelope.circle.fill")
+                        .keyboardType(.emailAddress)
                     FormInput("Password", text: $loginVM.loginInfo.password, icon: "lock.circle.fill")
                         .secureText()
                     FormButton(title: "Login", onPress: onPress, isLoading: loginVM.isLoading )
