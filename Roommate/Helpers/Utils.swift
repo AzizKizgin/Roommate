@@ -67,7 +67,7 @@ struct Utils {
     static func getAddressFromLatLong(coordinate: CLLocationCoordinate2D, completion: @escaping (RoomAddress?) -> Void) {
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)){adress , error  in
-            if let error {
+            if error != nil {
                 completion(nil)
                 return
             }
@@ -82,5 +82,15 @@ struct Utils {
                 completion(roomAddress)
             }
         }
+    }
+    
+    static func getAge(from dateString: String) -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        guard let birthDate = dateFormatter.date(from: dateString) else { return 0 }
+        
+        let calendar = Calendar.current
+        let ageComponents = calendar.dateComponents([.year], from: birthDate, to: Date())
+        return ageComponents.year ?? 0
     }
 }
