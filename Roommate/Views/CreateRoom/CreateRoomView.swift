@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CreateRoomView: View {
+    @Environment(\.dismiss) private var dismiss
     var room: Room?
     @Bindable private var createRoomVM = CreateRoomViewModel()
     var body: some View {
@@ -27,6 +28,18 @@ struct CreateRoomView: View {
                     let roomUpdate = RoomUpsertInfo(from: room)
                     self.createRoomVM.room = roomUpdate
                 }
+            }
+        }
+        .fullScreenCover(isPresented: .constant(self.createRoomVM.responseRoom != nil)){
+            NavigationStack{
+                RoomDetailView(room: self.createRoomVM.responseRoom!)
+                    .toolbar(){
+                        ToolbarItem(placement: .navigation) {
+                            Button("Close") {
+                                dismiss()
+                            }
+                        }
+                    }
             }
         }
     }
