@@ -14,15 +14,20 @@ class ImageManager {
     private init() {}
     
     func convertImageToString(for img: UIImage, completion: @escaping (String?) -> Void) {
-        DispatchQueue.main.async {
-            let imageData = img.jpegData(compressionQuality: 1)
-            let base64String = imageData?.base64EncodedString()
-            DispatchQueue.main.async {
-                completion(base64String)
+        DispatchQueue.global().async {
+            if let imageData = img.jpegData(compressionQuality: 1) {
+                let base64String = imageData.base64EncodedString()
+                DispatchQueue.main.async {
+                    completion(base64String)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
             }
         }
     }
-    
+
     func convertStringToImage(for imgString: String) -> UIImage? {
         if let imageData = Data(base64Encoded: imgString),
            let image = UIImage(data: imageData){
@@ -32,11 +37,16 @@ class ImageManager {
     }
     
     func convertStringToImageData(for imgString: String, completion: @escaping (Data?) -> Void) {
-        Task {
+        DispatchQueue.global().async {
             if let imageData = Data(base64Encoded: imgString) {
-                completion(imageData)
+                DispatchQueue.main.async {
+                    completion(imageData)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
             }
-            completion(nil)
         }
     }
 }
