@@ -13,9 +13,11 @@ import MapKit
 struct RoomDetailView: View {
    
     let room: RoomProtocol
+    @Environment(\.modelContext) private var modelContext
     @Bindable private var roomDetailVM: RoomDetailViewModel
     @State private var imageDatas: [Data] = []
     @Query private var users: [AppUser]
+    @Query private var savedRooms: [SavedRoom]
     init(room: RoomProtocol) {
         self.room = room
         self._roomDetailVM = Bindable(RoomDetailViewModel(room: room))
@@ -33,9 +35,9 @@ struct RoomDetailView: View {
                 }
             }
             .overlay(alignment: .bottomTrailing, content: {
-                Button(action: self.roomDetailVM.favoriteRoom, label: {
+                Button(action: favoriteRoom, label: {
                     if let user = users.first , roomDetailVM.room.savedBy.contains(where: { savedBy in
-                        return savedBy.id == user.id
+                        savedBy.id == user.id
                     }){
                         Image(systemName: "heart.fill")
                             .foregroundStyle(.accent)
@@ -168,6 +170,23 @@ struct RoomDetailView: View {
 
 #Preview {
     RoomDetailView(room: fakeRoom)
+}
+
+extension RoomDetailView {
+    private func favoriteRoom() {
+        self.roomDetailVM.favoriteRoom { favedRoom in
+            guard let favedRoom else {return}
+            if let savedRoom = savedRooms.first(where: { saved in
+                saved.id == favedRoom.id
+            }){
+                modelContext.delete(savedRoom)
+            }
+            else {
+                let room = SavedRoom(from: favedRoom)
+                modelContext.insert(room)
+            }
+        }
+    }
 }
 
 var fakeRoom = Room(id: 1, price: 1234, roomCount: 1, bathCount: 2, images: [image,image,image], size: 245, about: "It is room about It is room about It is room about It is room about It is room about It is room about It is room about It is room about It is room about It is room about It is room about It is room about It is room about It is room about", createdAt: "14.04.2024", owner: RoomUser(id: "ssss", firstName: "FirstName", lastName: "LastName", profilePicture: image, createdAt: "12.04.2024", about: "it is User About it is User About it is User About it is User About it is User About it is User About it is User About it is User About it is User About it is User About it is User About it is User About it is User About it is User About ", birthDate: "11.02.2004", job: "Student"), savedBy: [], address: RoomAddress(street: "23. Street", city: "City", town: "Town", country: "Country", buildingNo: "2", apartmentNo: "2", zipCode: "23453", latitude: 41.015137, longitude: 28.979530))

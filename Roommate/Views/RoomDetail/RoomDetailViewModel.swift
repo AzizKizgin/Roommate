@@ -19,7 +19,7 @@ import Foundation
         self.room = room
     }
     
-    func favoriteRoom() {
+    func favoriteRoom(completion: @escaping (RoomProtocol?) -> Void) {
         self.isLoading = true
         RoomManager.shared.favoriteRoom(id: room.id) { [weak self] result in
             defer {
@@ -31,9 +31,10 @@ import Foundation
                 switch result {
                 case .success(let room):
                     self?.room = room
-                    print("sss")
+                    completion(room)
                 case .failure(let error):
                     print(error)
+                    completion(nil)
                 }
             }
         }
