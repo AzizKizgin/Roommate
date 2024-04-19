@@ -38,7 +38,7 @@ class SavedRoom : RoomProtocol {
         self.address = address
     }
     
-    init(from room: Room){
+    init(from room: RoomProtocol){
         self.id = room.id
         self.price = room.price
         self.roomCount = room.roomCount
