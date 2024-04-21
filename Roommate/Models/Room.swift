@@ -22,6 +22,13 @@ struct Room: Identifiable, Decodable, RoomProtocol {
     var address: RoomAddress
 }
 
+struct RoomsResponse: Decodable {
+    let rooms: [Room]
+    let totalCount: Int
+    let page: Int
+    let pageSize: Int
+}
+
 struct RoomUpsertInfo: Encodable {
     var id: Int?
     var price: String
