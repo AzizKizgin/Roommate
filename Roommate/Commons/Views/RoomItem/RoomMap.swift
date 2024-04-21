@@ -6,13 +6,26 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct RoomMap: View {
+    let address: RoomAddress
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            let initialLocation: CLLocationCoordinate2D = .init(latitude: address.latitude, longitude: address.longitude)
+            let position: MapCameraPosition = .camera(.init(centerCoordinate: initialLocation, distance: 2000))
+            Map(position: .constant(position), interactionModes: .zoom){
+                Annotation("", coordinate: initialLocation) {
+                    Image(systemName: "house.circle.fill")
+                        .font(.title)
+                        .foregroundStyle(.white)
+                        .background(Circle().foregroundStyle(.accent))
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    RoomMap()
+    RoomMap(address: testRoom.address)
 }

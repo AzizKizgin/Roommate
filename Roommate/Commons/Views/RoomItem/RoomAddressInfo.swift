@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct RoomAddressInfo: View {
+    let address: RoomAddress
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("\(address.town), \(address.city)")
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Text("\(address.street), no: \(address.buildingNo) / \(address.apartmentNo) ")
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
     }
 }
 
 #Preview {
-    RoomAddressInfo()
+    RoomAddressInfo(address: testRoom.address)
 }
