@@ -8,24 +8,22 @@
 import Foundation
 
 struct RoomQueryObject: Encodable {
-    var minPrice: Int?
-    var maxPrice: Int?
-    var minRoomCount: Int?
-    var maxRoomCount: Int?
-    var minBathCount: Int?
-    var maxBathCount: Int?
+    var minPrice: Double?
+    var maxPrice: Double?
+    var roomCounts: [Int]?
+    var bathCounts: [Int]?
     var minSize: Double?
     var maxSize: Double?
     var page: Int = 1
-    var pageSize: Int = 15
+    var pageSize: Int = 1
     var street: String?
     var city: String?
-    var state: String?
+    var town: String?
     var latitude: Double?
     var longitude: Double?
     var distance: Double?
     var sortBy: SortByProperty?
-    var sortDirection: SortDirection = .asc
+    var sortDirection: SortDirection?
     var dateRange: DateRange?
 }
 
