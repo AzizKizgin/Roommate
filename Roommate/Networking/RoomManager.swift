@@ -13,10 +13,10 @@ class RoomManager {
     
     private init() {}
 
-    func getRooms(query: RoomQueryObject,completion: @escaping (Result<[Room],Error>) -> Void) {
+    func getRooms(query: RoomQueryObject,completion: @escaping (Result<RoomsResponse,Error>) -> Void) {
         DataManager.shared.sendRequest(
             for: Endpoints.getRoomListURL(query: query),
-            requestType: .get){(result: Result<[Room],Error>) in
+            requestType: .get){(result: Result<RoomsResponse,Error>) in
                 switch result {
                 case .success(let data):
                     completion(.success(data))
