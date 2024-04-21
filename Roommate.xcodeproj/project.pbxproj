@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00B7F4D2BD2F0CD00637D04 /* RoomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00B7F4C2BD2F0CD00637D04 /* RoomItem.swift */; };
+		E00B7F4F2BD2F1BA00637D04 /* RoomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00B7F4E2BD2F1BA00637D04 /* RoomImages.swift */; };
+		E00B7F512BD2F24E00637D04 /* RoomAddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00B7F502BD2F24E00637D04 /* RoomAddressInfo.swift */; };
+		E00B7F542BD2F2AF00637D04 /* TestRoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00B7F532BD2F2AF00637D04 /* TestRoomData.swift */; };
+		E00B7F562BD2F4E300637D04 /* RoomMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00B7F552BD2F4E300637D04 /* RoomMap.swift */; };
+		E00B7F5C2BD3087A00637D04 /* RoomProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00B7F5B2BD3087A00637D04 /* RoomProps.swift */; };
 		E00DE2972BC4B9A40006AF8A /* ProfilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00DE2962BC4B9A40006AF8A /* ProfilePicture.swift */; };
 		E01566DB2BCC8FDF0037A960 /* RoomPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01566DA2BCC8FDF0037A960 /* RoomPhotoPicker.swift */; };
 		E01566DD2BCC9C080037A960 /* CreateRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01566DC2BCC9C080037A960 /* CreateRoomView.swift */; };
+		E019DB382BD5CA9D00F1C467 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E019DB372BD5CA9D00F1C467 /* EmptyListView.swift */; };
 		E037292F2BC09CA900B6E9B4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037292E2BC09CA900B6E9B4 /* AppUser.swift */; };
 		E03729322BC09D0600B6E9B4 /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03729312BC09D0600B6E9B4 /* UserProtocol.swift */; };
 		E0438E762BCF3FB700660AE6 /* RoomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0438E752BCF3FB700660AE6 /* RoomDetailView.swift */; };
@@ -45,6 +52,7 @@
 		E0A3C8632BC6080F00D488B0 /* RoomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A3C8622BC6080F00D488B0 /* RoomProtocol.swift */; };
 		E0A3C8672BC6089800D488B0 /* SavedRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A3C8662BC6089800D488B0 /* SavedRoom.swift */; };
 		E0B6297F2BCB20330053B718 /* RoomCreateLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B6297E2BCB20330053B718 /* RoomCreateLocationView.swift */; };
+		E0C8FFF42BD40B250098D4BD /* FilterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C8FFF32BD40B250098D4BD /* FilterSelectionView.swift */; };
 		E0CD1E5B2BCC8A6A0054EC53 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CD1E5A2BCC8A6A0054EC53 /* SearchField.swift */; };
 		E0E328D92BC4A42300839513 /* UserSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E328D82BC4A42300839513 /* UserSettingsView.swift */; };
 		E0E328DB2BC4B0A500839513 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E328DA2BC4B0A500839513 /* ChangePasswordView.swift */; };
@@ -81,9 +89,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E00B7F4C2BD2F0CD00637D04 /* RoomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomItem.swift; sourceTree = "<group>"; };
+		E00B7F4E2BD2F1BA00637D04 /* RoomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomImages.swift; sourceTree = "<group>"; };
+		E00B7F502BD2F24E00637D04 /* RoomAddressInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddressInfo.swift; sourceTree = "<group>"; };
+		E00B7F532BD2F2AF00637D04 /* TestRoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRoomData.swift; sourceTree = "<group>"; };
+		E00B7F552BD2F4E300637D04 /* RoomMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomMap.swift; sourceTree = "<group>"; };
+		E00B7F5B2BD3087A00637D04 /* RoomProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomProps.swift; sourceTree = "<group>"; };
 		E00DE2962BC4B9A40006AF8A /* ProfilePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicture.swift; sourceTree = "<group>"; };
 		E01566DA2BCC8FDF0037A960 /* RoomPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPhotoPicker.swift; sourceTree = "<group>"; };
 		E01566DC2BCC9C080037A960 /* CreateRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomView.swift; sourceTree = "<group>"; };
+		E019DB372BD5CA9D00F1C467 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		E037292E2BC09CA900B6E9B4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		E03729312BC09D0600B6E9B4 /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
 		E0438E752BCF3FB700660AE6 /* RoomDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailView.swift; sourceTree = "<group>"; };
@@ -123,6 +138,7 @@
 		E0A3C8622BC6080F00D488B0 /* RoomProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomProtocol.swift; sourceTree = "<group>"; };
 		E0A3C8662BC6089800D488B0 /* SavedRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRoom.swift; sourceTree = "<group>"; };
 		E0B6297E2BCB20330053B718 /* RoomCreateLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCreateLocationView.swift; sourceTree = "<group>"; };
+		E0C8FFF32BD40B250098D4BD /* FilterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionView.swift; sourceTree = "<group>"; };
 		E0CD1E5A2BCC8A6A0054EC53 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		E0E328D82BC4A42300839513 /* UserSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsView.swift; sourceTree = "<group>"; };
 		E0E328DA2BC4B0A500839513 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
@@ -166,6 +182,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E00B7F4B2BD2F0BD00637D04 /* RoomItem */ = {
+			isa = PBXGroup;
+			children = (
+				E00B7F4C2BD2F0CD00637D04 /* RoomItem.swift */,
+				E00B7F4E2BD2F1BA00637D04 /* RoomImages.swift */,
+				E00B7F502BD2F24E00637D04 /* RoomAddressInfo.swift */,
+				E00B7F552BD2F4E300637D04 /* RoomMap.swift */,
+				E00B7F5B2BD3087A00637D04 /* RoomProps.swift */,
+			);
+			path = RoomItem;
+			sourceTree = "<group>";
+		};
+		E00B7F522BD2F29B00637D04 /* TestDatas */ = {
+			isa = PBXGroup;
+			children = (
+				E00B7F532BD2F2AF00637D04 /* TestRoomData.swift */,
+			);
+			path = TestDatas;
+			sourceTree = "<group>";
+		};
 		E03729302BC09CFA00B6E9B4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +225,7 @@
 			children = (
 				E059FBBD2BC350D6005AD02C /* HomeView.swift */,
 				E059FBBF2BC350E1005AD02C /* HomeViewModel.swift */,
+				E0C8FFF32BD40B250098D4BD /* FilterSelectionView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -244,6 +281,7 @@
 		E06617D02BBEFB460001723C /* Roommate */ = {
 			isa = PBXGroup;
 			children = (
+				E00B7F522BD2F29B00637D04 /* TestDatas */,
 				E0EC35702BC58ADF00559568 /* Managers */,
 				E0EC35662BC57DF500559568 /* Extensions */,
 				E0F332582BC1C58000FBF9EC /* Commons */,
@@ -421,11 +459,13 @@
 		E0F332592BC1C58C00FBF9EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E00B7F4B2BD2F0BD00637D04 /* RoomItem */,
 				E0F332612BC1CF8400FBF9EC /* DateInput.swift */,
 				E0F332632BC1D25300FBF9EC /* FormButton.swift */,
 				E00DE2962BC4B9A40006AF8A /* ProfilePicture.swift */,
 				E0CD1E5A2BCC8A6A0054EC53 /* SearchField.swift */,
 				E0FCC4172BCDA9090002AF67 /* FormInput.swift */,
+				E019DB372BD5CA9D00F1C467 /* EmptyListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -561,6 +601,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E06617D42BBEFB460001723C /* ContentView.swift in Sources */,
+				E00B7F542BD2F2AF00637D04 /* TestRoomData.swift in Sources */,
+				E00B7F4D2BD2F0CD00637D04 /* RoomItem.swift in Sources */,
+				E00B7F562BD2F4E300637D04 /* RoomMap.swift in Sources */,
 				E0FCC41A2BCDC10D0002AF67 /* CreateRoomViewModel.swift in Sources */,
 				E0F332572BC1B05100FBF9EC /* RegisterViewModel.swift in Sources */,
 				E0FCC4182BCDA9090002AF67 /* FormInput.swift in Sources */,
@@ -568,6 +611,8 @@
 				E00DE2972BC4B9A40006AF8A /* ProfilePicture.swift in Sources */,
 				E06618042BBF04C10001723C /* QueryObjects.swift in Sources */,
 				E01566DB2BCC8FDF0037A960 /* RoomPhotoPicker.swift in Sources */,
+				E019DB382BD5CA9D00F1C467 /* EmptyListView.swift in Sources */,
+				E00B7F5C2BD3087A00637D04 /* RoomProps.swift in Sources */,
 				E059FBCC2BC351A1005AD02C /* SavedRoomsViewModel.swift in Sources */,
 				E0E328D92BC4A42300839513 /* UserSettingsView.swift in Sources */,
 				E0FCC4142BCDA02B0002AF67 /* RoomCreateDetailsView.swift in Sources */,
@@ -578,6 +623,7 @@
 				E0FCC41C2BCDC3170002AF67 /* CreateRoomScreen.swift in Sources */,
 				E0EC356D2BC5856B00559568 /* ImageSize.swift in Sources */,
 				E059FBD32BC35273005AD02C /* MainView.swift in Sources */,
+				E00B7F4F2BD2F1BA00637D04 /* RoomImages.swift in Sources */,
 				E06618092BBF07240001723C /* Room.swift in Sources */,
 				E0EC35752BC58F1800559568 /* UserPhotoPicker.swift in Sources */,
 				E059FBD12BC351C3005AD02C /* MessagesView.swift in Sources */,
@@ -597,6 +643,8 @@
 				E0EC35682BC57E0600559568 /* Encodable.swift in Sources */,
 				E074EDD92BC4327900346D14 /* TabScreen.swift in Sources */,
 				E0CD1E5B2BCC8A6A0054EC53 /* SearchField.swift in Sources */,
+				E00B7F512BD2F24E00637D04 /* RoomAddressInfo.swift in Sources */,
+				E0C8FFF42BD40B250098D4BD /* FilterSelectionView.swift in Sources */,
 				E066180B2BBF0D520001723C /* Endpoints.swift in Sources */,
 				E0F332622BC1CF8400FBF9EC /* DateInput.swift in Sources */,
 				E066180F2BBF1DD90001723C /* UserManager.swift in Sources */,
