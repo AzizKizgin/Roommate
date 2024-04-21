@@ -21,7 +21,9 @@ struct RegisterView: View {
                 FormInput("Job", text: $registerVM.user.job, icon: "hammer.circle.fill")
                 FormInput("Phone", text: $registerVM.user.phoneNumber, icon: "phone.circle.fill")
                 FormInput("Password", text: $registerVM.user.password, icon: "lock.circle.fill")
+                    .secureText()
                 FormInput("Confirm Password", text: $registerVM.confirmPassword, icon: "lock.circle.fill")
+                    .secureText()
                 FormButton(title: "Register", onPress: registerVM.registerUser, isLoading: registerVM.isLoading)
                     .padding(.vertical)
             }
