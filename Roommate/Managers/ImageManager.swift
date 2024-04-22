@@ -49,4 +49,20 @@ class ImageManager {
             }
         }
     }
+    
+    func convertStringArrayToImageDataArray(for imgStrings: [String], completion: @escaping ([Data]) -> Void) {
+        DispatchQueue.global().async {
+            var imageDataArray: [Data] = []
+            
+            for imgString in imgStrings {
+                if let imageData = Data(base64Encoded: imgString) {
+                    imageDataArray.append(imageData)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                completion(imageDataArray)
+            }
+        }
+    }
 }

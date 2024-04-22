@@ -50,12 +50,8 @@ struct RoomPhotoPicker: View {
         }
         .onAppear{
             if !createRoomVM.room.images.isEmpty {
-                createRoomVM.room.images.forEach { image in
-                    ImageManager.shared.convertStringToImageData(for: image, completion: { data in
-                        if let data {
-                            self.imageDatas.append(data)
-                        }
-                    })
+                ImageManager.shared.convertStringArrayToImageDataArray(for: createRoomVM.room.images) { data in
+                        self.imageDatas = data
                 }
             }
         }
