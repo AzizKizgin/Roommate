@@ -71,17 +71,22 @@ struct RoomCreateLocationView: View {
                 }
             }
             .mapScope(mapScope)
+            .onChange(of: self.createRoomVM.room.address.latitude, { oldValue, newValue in
+                let latitude = self.createRoomVM.room.address.latitude
+                let longitude = self.createRoomVM.room.address.longitude
+                print(latitude)
+                
+                if latitude != 0.0 && longitude != 0.0 {
+                    selectedLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    if let selectedLocation {
+                        position = .camera(.init(centerCoordinate: selectedLocation, distance: 300))
+                    }
+                }
+            })
             .onAppear {
                 DispatchQueue.global().async {
                     let locationManager = CLLocationManager()
                     locationManager.requestWhenInUseAuthorization()
-                    
-                    let latitude = self.createRoomVM.room.address.latitude
-                    let longitude = self.createRoomVM.room.address.longitude
-                    
-                    if latitude != 0.0 && longitude != 0.0 {
-                        selectedLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                    }
                     
                     if locationManager.authorizationStatus == .authorizedWhenInUse {
                         position = .userLocation(fallback: .automatic)
@@ -89,11 +94,6 @@ struct RoomCreateLocationView: View {
                 }
             }
             .toolbar{
-                ToolbarItem(placement: .navigation) {
-                    Button("Close") {
-                        dismiss()
-                    }
-                }
                 ToolbarItem(placement: .confirmationAction) {
                     if let coordinate = selectedLocation, coordinate.latitude != 0.0 && coordinate.longitude != 0.0 {
                         Button("Next") {
