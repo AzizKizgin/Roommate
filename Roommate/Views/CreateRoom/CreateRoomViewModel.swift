@@ -78,7 +78,6 @@ import SwiftUI
                 switch result {
                 case .success(let room):
                     self?.responseRoom = room
-                    print("sss")
                 case .failure(let error):
                     print(error)
                     self?.setError(error.localizedDescription)
