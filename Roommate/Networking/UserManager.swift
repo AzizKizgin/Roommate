@@ -44,7 +44,7 @@ class UserManager {
     func logout(completion: @escaping (Result<Bool,Error>) -> Void){
         DataManager.shared.sendRequest(
             for: Endpoints.getLogoutURL(),
-            requestType: .post){(result: Result<Bool,Error>) in
+            requestType: .post){(result: Result<User,Error>) in
                 switch result {
                 case .success:
                     completion(.success(true))
