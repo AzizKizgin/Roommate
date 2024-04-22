@@ -32,6 +32,7 @@ struct MainView: View {
                     Label("Account", systemImage: "person")
                 }
         }
+        .toolbar(selectedTab == .Home ? .visible: .hidden, for: .navigationBar)
     }
 }
 
