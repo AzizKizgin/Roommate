@@ -112,15 +112,17 @@ import SwiftUI
         }
     }
     
-    func setEditData(room: Room?) {
+    func setEditData(room: Room?) async {
         self.isLoading = true
         DispatchQueue.main.async {
+            defer {
+                self.isLoading = false
+            }
             if let room {
                 let roomUpdate = RoomUpsertInfo(from: room)
                 self.room = roomUpdate
                 self.isEditing = true
             }
-            self.isLoading = false
         }
     }
     
