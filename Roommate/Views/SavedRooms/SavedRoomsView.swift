@@ -6,13 +6,56 @@
 //
 
 import SwiftUI
-
+import SwiftData
 struct SavedRoomsView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query private var savedRooms: [SavedRoom]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Group {
+            if savedRooms.isEmpty {
+                VStack {
+                    Image(systemName: "list.clipboard")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100)
+                    Text("No room saved yet")
+                        .font(.title)
+                }
+                .foregroundStyle(.accent)
+            }
+            else {
+                ScrollView{
+                    ForEach(savedRooms, id: \.id) { room in
+                        NavigationLink(value: room){
+                                RoomItem(room: room)
+                                    .contentShape(Rectangle())
+                            }
+                            .buttonStyle(.plain)
+                            .padding(.vertical)
+                    }
+                }
+                .navigationDestination(for: SavedRoom.self, destination: { room in
+                    RoomDetailView(room: room, inSavedView: true)
+                })
+            }
+        }
+        .navigationTitle("Saved Rooms")
     }
 }
 
 #Preview {
-    SavedRoomsView()
+    MainActor.assumeIsolated {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try! ModelContainer(for: SavedRoom.self, configurations: config)
+
+        let room = SavedRoom(from: testRoom)
+        let room2 = SavedRoom(from: testRoom2)
+        container.mainContext.insert(room)
+        container.mainContext.insert(room2)
+        
+        return NavigationStack {
+            SavedRoomsView()
+                .modelContainer(container)
+        }
+    }
 }
