@@ -32,7 +32,6 @@ class DataManager {
 
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                print("error")
                 print(error)
                 completion(.failure(error))
                 return
