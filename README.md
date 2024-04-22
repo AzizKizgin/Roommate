@@ -17,7 +17,7 @@ Roommate is a mobile application designed to simplify the process of finding roo
   
 - **Backend**:
   - ASP.NET Core Web API: A robust and versatile framework for building HTTP services with .NET.
-  - You can find backend project [here.]([www.google.com](https://github.com/AzizKizgin/RoommateBackend))
+  - You can find backend project [here](https://github.com/AzizKizgin/RoommateBackend)
 
  <p float="center">
     <img src="https://github.com/AzizKizgin/Roommate/assets/65086568/75e05b19-29e6-4c76-9a00-ddfb54dcb752" width="400" />
