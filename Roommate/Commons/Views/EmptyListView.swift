@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct EmptyListView: View {
+    let title: LocalizedStringKey
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Image(systemName: "list.clipboard")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100)
+            Text(title)
+                .font(.title)
+        }
+        .foregroundStyle(.accent)
     }
 }
 
 #Preview {
-    EmptyListView()
+    EmptyListView(title: "No room here")
 }
