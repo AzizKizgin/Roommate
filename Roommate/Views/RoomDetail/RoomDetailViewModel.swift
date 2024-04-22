@@ -15,22 +15,23 @@ import Foundation
          self.room = room
      }
     
-    func setRoom(room: RoomProtocol) {
+    func setRoom(room: RoomProtocol) async{
         self.room = room
     }
     
-    func favoriteRoom(completion: @escaping (RoomProtocol?) -> Void) {
+    func favoriteRoom(completion: @escaping (RoomProtocol?) -> Void) async{
         self.isLoading = true
         RoomManager.shared.favoriteRoom(id: room.id) { [weak self] result in
+            guard let self else {return}
             defer {
                 DispatchQueue.main.async {
-                    self?.isLoading = false
+                    self.isLoading = false
                 }
             }
             DispatchQueue.main.async {
                 switch result {
                 case .success(let room):
-                    self?.room = room
+                    self.room = room
                     completion(room)
                 case .failure(let error):
                     print(error)

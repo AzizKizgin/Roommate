@@ -38,11 +38,13 @@ struct LoginView: View {
 
 extension LoginView {
     private func onPress() {
-        loginVM.login { user in
-            if let user {
-                let currentUser = AppUser(from: user)
-                modelContext.insert(currentUser)
-                UserDefaults.standard.setValue(currentUser.token, forKey: "token")
+        Task {
+            await loginVM.login { user in
+                if let user {
+                    let currentUser = AppUser(from: user)
+                    modelContext.insert(currentUser)
+                    UserDefaults.standard.setValue(currentUser.token, forKey: "token")
+                }
             }
         }
     }

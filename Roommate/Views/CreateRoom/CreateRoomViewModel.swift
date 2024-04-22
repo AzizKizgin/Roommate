@@ -17,6 +17,7 @@ import SwiftUI
     var errorText: String = ""
     var isLoading: Bool = false
     var responseRoom: Room? = nil
+    var isEditing: Bool = false
     
     func goScreen(_ screen: CreateRoomScreen) {
         DispatchQueue.main.async {
@@ -25,6 +26,10 @@ import SwiftUI
     }
     
     func setCoordinate(coordinate: CLLocationCoordinate2D) {
+        if coordinate.latitude == self.room.address.latitude && coordinate.longitude == self.room.address.longitude {
+            self.goScreen(.photo)
+            return
+        }
         Utils.getAddressFromLatLong(coordinate: coordinate) { [weak self] address in
             guard let address = address else {
                 DispatchQueue.main.async {
@@ -68,21 +73,54 @@ import SwiftUI
             isLoading = false
             return
         }
-        RoomManager.shared.createRoom(roomData: self.room) { [weak self] result in
-            defer {
+        if self.isEditing {
+            guard let roomId = room.id else {return}
+            RoomManager.shared.updateRoom(id: roomId, roomData: room){ [weak self] result in
+                defer {
+                    DispatchQueue.main.async {
+                        self?.isLoading = false
+                    }
+                }
                 DispatchQueue.main.async {
-                    self?.isLoading = false
+                    switch result {
+                    case .success(let room):
+                        self?.responseRoom = room
+                    case .failure(let error):
+                        print(error)
+                        self?.setError(error.localizedDescription)
+                    }
                 }
             }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let room):
-                    self?.responseRoom = room
-                case .failure(let error):
-                    print(error)
-                    self?.setError(error.localizedDescription)
+        }
+        else {
+            RoomManager.shared.createRoom(roomData: self.room) { [weak self] result in
+                defer {
+                    DispatchQueue.main.async {
+                        self?.isLoading = false
+                    }
+                }
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let room):
+                        self?.responseRoom = room
+                    case .failure(let error):
+                        print(error)
+                        self?.setError(error.localizedDescription)
+                    }
                 }
             }
+        }
+    }
+    
+    func setEditData(room: Room?) {
+        self.isLoading = true
+        DispatchQueue.main.async {
+            if let room {
+                let roomUpdate = RoomUpsertInfo(from: room)
+                self.room = roomUpdate
+                self.isEditing = true
+            }
+            self.isLoading = false
         }
     }
     

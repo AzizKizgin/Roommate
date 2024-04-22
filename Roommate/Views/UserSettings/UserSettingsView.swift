@@ -39,11 +39,13 @@ struct UserSettingsView: View {
 
 extension UserSettingsView {
     private func updateUser(){
-        accountVm.updateUser { user in
-            if let user, let appUser = users.first {
-                appUser.update(from: user)
-                try? context.save()
-                accountVm.isSuccess.toggle()
+        Task {
+            await accountVm.updateUser { user in
+                if let user, let appUser = users.first {
+                    appUser.update(from: user)
+                    try? context.save()
+                    accountVm.isSuccess.toggle()
+                }
             }
         }
     }

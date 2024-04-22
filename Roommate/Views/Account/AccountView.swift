@@ -27,6 +27,11 @@ struct AccountView: View {
                 } label: {
                     Label("Change Password", systemImage: "lock.circle.fill")
                 }
+                NavigationLink {
+                    UserRoomView()
+                } label: {
+                    Label("Your Room", systemImage: "house.fill")
+                }
             }
             Section("preferences"){
                 Toggle(isOn: $isDark, label: {
@@ -63,10 +68,12 @@ struct AccountView: View {
         }
         .alert("Do you want to logout?", isPresented: $accountVM.showLogoutAlert){
             Button("Yes", role: .destructive) {
-                accountVM.logout { isLogout in
-                    if isLogout {
-                        try? context.delete(model: AppUser.self)
-                        try? context.delete(model: SavedRoom.self)
+                Task {
+                    await accountVM.logout { isLogout in
+                        if isLogout {
+                            try? context.delete(model: AppUser.self)
+                            try? context.delete(model: SavedRoom.self)
+                        }
                     }
                 }
             }

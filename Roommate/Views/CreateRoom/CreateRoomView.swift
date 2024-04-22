@@ -13,34 +13,25 @@ struct CreateRoomView: View {
     @Bindable private var createRoomVM = CreateRoomViewModel()
     var body: some View {
         Group {
-            switch createRoomVM.screen {
-            case .location:
-                RoomCreateLocationView(createRoomVM: createRoomVM)
-            case .photo:
-                RoomPhotoPicker(createRoomVM: createRoomVM)
-            case .detail:
-                RoomCreateDetailsView(createRoomVM: createRoomVM)
+            if self.createRoomVM.isLoading && room != nil {
+                ProgressView("Loading")
             }
-        }
-        .onAppear{
-            DispatchQueue.main.async {
-                if let room {
-                    let roomUpdate = RoomUpsertInfo(from: room)
-                    self.createRoomVM.room = roomUpdate
+            if let room = self.createRoomVM.responseRoom {
+                RoomDetailView(room: self.createRoomVM.responseRoom!)
+            }
+            else {
+                switch createRoomVM.screen {
+                case .location:
+                    RoomCreateLocationView(createRoomVM: createRoomVM)
+                case .photo:
+                    RoomPhotoPicker(createRoomVM: createRoomVM)
+                case .detail:
+                    RoomCreateDetailsView(createRoomVM: createRoomVM)
                 }
             }
         }
-        .fullScreenCover(isPresented: .constant(self.createRoomVM.responseRoom != nil)){
-            NavigationStack{
-                RoomDetailView(room: self.createRoomVM.responseRoom!)
-                    .toolbar(){
-                        ToolbarItem(placement: .navigation) {
-                            Button("Close") {
-                                dismiss()
-                            }
-                        }
-                    }
-            }
+        .onAppear{
+            self.createRoomVM.setEditData(room: room)
         }
     }
 }

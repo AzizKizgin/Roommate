@@ -6,53 +6,55 @@
 //
 
 import Foundation
-import SwiftUI
 
 @Observable class HomeViewModel {
     var rooms: [Room] = []
     var isLoading: Bool = false
     var showError: Bool = false
-    var errorText: LocalizedStringKey = ""
-    var isActive: Bool = false
+    var errorText: String = ""
     var queryObject: RoomQueryObject = RoomQueryObject()
     var totalPage:Int = 0
     
-    func loadMoreContent(currentItem item: Room){
+    init () {
+        Task {
+            await getRooms()
+        }
+    }
+    func loadMoreContent(currentItem item: Room) async{
         let thresholdIndex = self.rooms.index(self.rooms.endIndex, offsetBy: -1)
         if thresholdIndex == item.id, (queryObject.page + 1) <= totalPage {
             queryObject.page += 1
-            getRooms()
+            await getRooms()
         }
     }
     
-    func refresh() {
+    func refresh() async{
         self.rooms = []
         self.totalPage = 0
         self.queryObject.page = 1
-        getRooms()
+        await getRooms()
     }
     
-    func getRooms() {
+    func getRooms() async{
         isLoading = true
         RoomManager.shared.getRooms(query: self.queryObject) { [weak self] result in
+            guard let self else {return}
             defer {
-                self?.isLoading = false
+                self.isLoading = false
             }
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
-                    self?.rooms.append(contentsOf: response.rooms)
-                    self?.totalPage = response.totalPage
+                    self.rooms.append(contentsOf: response.rooms)
+                    self.totalPage = response.totalPage
                 case .failure(let error):
-                    print(error)
-                    self?.setError("An error occurred while fetching data")
-                    print("An error occurred while fetching data: \(error.localizedDescription)")
+                    self.setError(error.localizedDescription)
                 }
             }
         }
     }
     
-    private func setError(_ message: LocalizedStringKey){
+    private func setError(_ message: String){
         self.showError.toggle()
         self.errorText = message
     }

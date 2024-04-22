@@ -57,6 +57,7 @@ struct RoomDetailView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundStyle(.accent)
                     Text(roomDetailVM.room.about)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     Divider()
                 }
                 VStack(spacing: 10){
@@ -106,31 +107,43 @@ struct RoomDetailView: View {
             RoomMap(address: roomDetailVM.room.address)
             .frame(height: idiom == .pad ? 500 :300)
         }
+        .toolbar {
+            ToolbarItem(placement: .navigation) {
+                Button("Close", action: {dismiss()})
+                    .font(.title3)
+            }
+        }
         .onAppear{
-            roomDetailVM.setRoom(room: self.room)
+            Task {
+                await roomDetailVM.setRoom(room: self.room)
+            }
         }
     }
 }
 
 #Preview {
-    RoomDetailView(room: testRoom)
+    NavigationStack {
+        RoomDetailView(room: testRoom)
+    }
 }
 
 extension RoomDetailView {
     private func favoriteRoom() {
-        self.roomDetailVM.favoriteRoom { favedRoom in
-            guard let favedRoom else {return}
-            if let savedRoom = savedRooms.first(where: { saved in
-                saved.id == favedRoom.id
-            }){
-                modelContext.delete(savedRoom)
-                if inSavedView {
-                    dismiss()
+        Task {
+            await self.roomDetailVM.favoriteRoom { favedRoom in
+                guard let favedRoom else {return}
+                if let savedRoom = savedRooms.first(where: { saved in
+                    saved.id == favedRoom.id
+                }){
+                    modelContext.delete(savedRoom)
+                    if inSavedView {
+                        dismiss()
+                    }
                 }
-            }
-            else {
-                let room = SavedRoom(from: favedRoom)
-                modelContext.insert(room)
+                else {
+                    let room = SavedRoom(from: favedRoom)
+                    modelContext.insert(room)
+                }
             }
         }
     }

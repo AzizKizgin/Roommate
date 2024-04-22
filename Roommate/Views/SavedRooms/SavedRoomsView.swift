@@ -13,15 +13,7 @@ struct SavedRoomsView: View {
     var body: some View {
         Group {
             if savedRooms.isEmpty {
-                VStack {
-                    Image(systemName: "list.clipboard")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100)
-                    Text("No room saved yet")
-                        .font(.title)
-                }
-                .foregroundStyle(.accent)
+                EmptyListView(title: "No room saved yet")
             }
             else {
                 ScrollView{

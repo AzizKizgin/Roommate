@@ -20,16 +20,18 @@ class AccountViewModel: ObservableObject {
     @Published var confirmPassword: String = ""
     
     // MARK: - request functions
-    func updateUser(completion: @escaping (User?) -> Void) {
+    func updateUser(completion: @escaping (User?) -> Void) async{
+     
         isLoading = true
         guard validateUpdateUserFields() else {
             isLoading = false
             return
         }
         UserManager.shared.updateUser(id: userId, userInfo: updateInfo) { [weak self] result in
+            guard let self else {return}
             defer {
                 DispatchQueue.main.async {
-                    self?.isLoading = false
+                    self.isLoading = false
                 }
             }
             DispatchQueue.main.async {
@@ -38,47 +40,49 @@ class AccountViewModel: ObservableObject {
                     completion(user)
                 case .failure(let error):
                     completion(nil)
-                    self?.setError(error.localizedDescription)
+                    self.setError(error.localizedDescription)
                 }
             }
         }
     }
     
-    func updatePassword() {
+    func updatePassword() async{
         isLoading = true
         guard validateChangePasswordFields() else {
             isLoading = false
             return
         }
         UserManager.shared.changePassword(changePasswordInfo: changePasswordInfo) { [weak self] result in
+            guard let self else {return}
             defer {
                 DispatchQueue.main.async {
-                    self?.isLoading = false
+                    self.isLoading = false
                 }
             }
             DispatchQueue.main.async {
                 switch result {
                 case .success:
-                    self?.isSuccess.toggle()
+                    self.isSuccess.toggle()
                 case .failure(let error):
-                    self?.setError(error.localizedDescription)
+                    self.setError(error.localizedDescription)
                 }
             }
         }
     }
     
-    func logout(completion: @escaping (Bool) -> Void){
+    func logout(completion: @escaping (Bool) -> Void) async {
         isLoading = true
         UserManager.shared.logout { [weak self] result in
+            guard let self else {return}
             defer {
                 DispatchQueue.main.async {
-                    self?.isLoading = false
+                    self.isLoading = false
                 }
             }
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
-                    self?.isSuccess.toggle()
+                    self.isSuccess.toggle()
                     if data {
                         completion(true)
                     }
@@ -86,7 +90,7 @@ class AccountViewModel: ObservableObject {
                         completion(false)
                     }
                 case .failure(let error):
-                    self?.setError(error.localizedDescription)
+                    self.setError(error.localizedDescription)
                     completion(false)
                 }
             }

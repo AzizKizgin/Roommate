@@ -24,7 +24,11 @@ struct RegisterView: View {
                     .secureText()
                 FormInput("Confirm Password", text: $registerVM.confirmPassword, icon: "lock.circle.fill")
                     .secureText()
-                FormButton(title: "Register", onPress: registerVM.registerUser, isLoading: registerVM.isLoading)
+                FormButton(title: "Register", onPress: {
+                    Task {
+                        await registerVM.registerUser()
+                    }
+                }, isLoading: registerVM.isLoading)
                     .padding(.vertical)
             }
             .padding()

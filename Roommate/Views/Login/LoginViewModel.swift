@@ -25,16 +25,17 @@ class LoginViewModel: ObservableObject {
         self.errorText = message
     }
     
-    func login(completion: @escaping (User?) -> Void) {
+    func login(completion: @escaping (User?) -> Void) async {
         isLoading = true
         guard validateFields() else {
             isLoading = false
             return
         }
         UserManager.shared.login(loginData: loginInfo) { [weak self] result in
+            guard let self else {return}
             defer {
                 DispatchQueue.main.async {
-                    self?.isLoading = false
+                    self.isLoading = false
                 }
             }
             DispatchQueue.main.async {
@@ -42,7 +43,7 @@ class LoginViewModel: ObservableObject {
                 case .success(let data):
                     completion(data)
                 case .failure(let error):
-                    self?.setError(error.localizedDescription)
+                    self.setError(error.localizedDescription)
                     completion(nil)
                 }
             }

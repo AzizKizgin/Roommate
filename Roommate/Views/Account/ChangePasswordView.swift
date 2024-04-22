@@ -21,7 +21,11 @@ struct ChangePasswordView: View {
                         .secureText()
                     FormInput("Confirm New Password", text: $accountVM.confirmPassword, icon: "lock.circle.fill")
                         .secureText()
-                    FormButton(title: "Change Password", onPress: accountVM.updatePassword, isLoading: accountVM.isLoading)
+                    FormButton(title: "Change Password", onPress: {
+                        Task {
+                            await accountVM.updatePassword()
+                        }
+                    }, isLoading: accountVM.isLoading)
                 }
                 .padding()
                 Spacer()

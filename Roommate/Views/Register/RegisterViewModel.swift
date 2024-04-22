@@ -16,24 +16,25 @@ class RegisterViewModel: ObservableObject {
     @Published var isSuccess: Bool = false
     
     // MARK: - Register
-    func registerUser() {
+    func registerUser()  async {
         isLoading = true
         guard validateFields() else {
             isLoading = false
             return
         }
         UserManager.shared.register(registerData: user) { [weak self] result in
+            guard let self else {return}
             defer {
                 DispatchQueue.main.async {
-                    self?.isLoading = false
+                    self.isLoading = false
                 }
             }
             DispatchQueue.main.async {
                 switch result {
                 case .success:
-                    self?.isSuccess.toggle()
+                    self.isSuccess.toggle()
                 case .failure(let error):
-                    self?.handleAuthError(error.localizedDescription)
+                    self.handleAuthError(error.localizedDescription)
                 }
             }
         }

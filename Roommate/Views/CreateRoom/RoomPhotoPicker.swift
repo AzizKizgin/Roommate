@@ -31,10 +31,15 @@ struct RoomPhotoPicker: View {
         .navigationBarBackButtonHidden()
         .toolbar{
             ToolbarItem(placement: .confirmationAction) {
-                if !createRoomVM.roomPickerItems.isEmpty {
+                if (!createRoomVM.room.images.isEmpty || !createRoomVM.roomPickerItems.isEmpty) {
                     Button("Next") {
-                        Task {
-                            await self.createRoomVM.setImages()
+                        if !createRoomVM.roomPickerItems.isEmpty {
+                            Task {
+                                await self.createRoomVM.setImages()
+                            }
+                        }
+                        else if createRoomVM.isEditing && !createRoomVM.room.images.isEmpty {
+                            self.createRoomVM.goScreen(.detail)
                         }
                     }
                 }

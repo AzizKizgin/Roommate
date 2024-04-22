@@ -11,38 +11,50 @@ struct HomeView: View {
     @Bindable private var homeVM = HomeViewModel()
     @State private var selectedRoom: RoomProtocol?
     @State private var showFilters: Bool = false
+    @State private var showCreate: Bool = false
     var body: some View {
         ScrollView{
-            VStack {
-                if homeVM.rooms.isEmpty {
-                    VStack {
-                        Text("No data")
+            if homeVM.rooms.isEmpty {
+                ZStack{
+                    Spacer().containerRelativeFrame([.horizontal, .vertical])
+                    if homeVM.isLoading {
+                        ProgressView("Loading")
+                            .controlSize(.large)
                     }
-                }
-                ForEach(homeVM.rooms, id: \.id) { room in
-                    NavigationLink(value: room){
-                        RoomItem(room: room)
-                            .contentShape(Rectangle())
+                    else {
+                        EmptyListView(title: "No rooms found")
                     }
-                    .buttonStyle(.plain)
-                    .onAppear{
-                        homeVM.loadMoreContent(currentItem: room)
-                    }
-                    .padding(.vertical)
                 }
             }
-            .padding()
+            else {
+                VStack {
+                    ForEach(homeVM.rooms, id: \.id) { room in
+                        NavigationLink(value: room){
+                            RoomItem(room: room)
+                                .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                        .onAppear{
+                            Task {
+                                await homeVM.loadMoreContent(currentItem: room)
+                            }
+                        }
+                        .padding(.vertical)
+                    }
+                }
+                .padding()
+            }
+            
         }
         .onChange(of: homeVM.queryObject, { oldValue, newValue in
-            homeVM.refresh()
-        })
-        .onAppear {
-            if homeVM.rooms.isEmpty {
-                homeVM.getRooms()
+            Task {
+                await homeVM.refresh()
             }
-        }
+        })
         .refreshable {
-            homeVM.refresh()
+            Task {
+                await homeVM.refresh()
+            }
         }
         .alert(self.homeVM.errorText, isPresented: $homeVM.showError, actions: {
             Button("Okay") {}
@@ -59,17 +71,30 @@ struct HomeView: View {
                 }
             }
             ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink {
-                    CreateRoomView()
-                } label: {
+                Button {
+                    showCreate.toggle()
+                }
+                label: {
                     Image(systemName: "plus.circle.fill")
                         .font(.title2)
                         .foregroundStyle(.accent)
                 }
             }
-            
         }
-        .fullScreenCover(isPresented: $showFilters, content: {
+        .fullScreenCover(isPresented: $showCreate,onDismiss: {
+            Task {
+                await self.homeVM.refresh()
+            }
+        }, content: {
+            NavigationStack {
+                CreateRoomView()
+            }
+        })
+        .fullScreenCover(isPresented: $showFilters,onDismiss: {
+            Task {
+                await self.homeVM.refresh()
+            }
+        }, content: {
             FilterSelectionView(queryObject: $homeVM.queryObject)
         })
         .navigationDestination(for: Room.self, destination: { room in
