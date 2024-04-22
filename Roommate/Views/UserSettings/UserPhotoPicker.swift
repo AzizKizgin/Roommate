@@ -45,8 +45,6 @@ struct UserPhotoPicker: View {
                     imageManager.convertImageToString(for: uiImage) { base64String in
                         if let base64String = base64String {
                             image = base64String
-                        } else {
-                            print("upss")
                         }
                         isLoading = false
                     }
