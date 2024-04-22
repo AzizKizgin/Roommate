@@ -15,9 +15,10 @@ struct CreateRoomView: View {
         Group {
             if self.createRoomVM.isLoading && room != nil {
                 ProgressView("Loading")
+                    .controlSize(.large)
             }
             if let room = self.createRoomVM.responseRoom {
-                RoomDetailView(room: self.createRoomVM.responseRoom!)
+                RoomDetailView(room: room)
             }
             else {
                 switch createRoomVM.screen {
@@ -31,7 +32,9 @@ struct CreateRoomView: View {
             }
         }
         .onAppear{
-            self.createRoomVM.setEditData(room: room)
+            Task {
+                await self.createRoomVM.setEditData(room: room)
+            }
         }
     }
 }
