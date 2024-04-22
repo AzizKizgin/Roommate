@@ -26,11 +26,11 @@ struct FilterSelectionView: View {
         List{
             Section("Price") {
                 HStack(spacing:20){
-                    FormInput("", text: $filters.maxPrice, icon: "turkishlirasign")
+                    FormInput("", text: $filters.minPrice, icon: "turkishlirasign")
                         .fieldHeight(10)
                         .header("min")
                         .iconSize(.callout)
-                    FormInput("", text: $filters.minPrice, icon: "turkishlirasign")
+                    FormInput("", text: $filters.maxPrice, icon: "turkishlirasign")
                         .fieldHeight(10)
                         .header("max")
                         .iconSize(.callout)
@@ -38,11 +38,11 @@ struct FilterSelectionView: View {
             }
             Section("Size"){
                 HStack(spacing:20) {
-                    FormInput("", text: $filters.maxSize, icon: "ruler.fill")
+                    FormInput("", text: $filters.minSize, icon: "ruler.fill")
                         .fieldHeight(10)
                         .header("min")
                         .iconSize(.callout)
-                    FormInput("", text: $filters.minSize, icon: "ruler.fill")
+                    FormInput("", text: $filters.maxSize, icon: "ruler.fill")
                         .fieldHeight(10)
                         .header("max")
                         .iconSize(.callout)
@@ -108,13 +108,15 @@ struct FilterSelectionView: View {
                         .iconSize(.callout)
                 }
             }
+            Button(action: saveChanges, label: {
+                Text("Save")
+                    .frame(maxWidth: .infinity)
+                    .font(.title3)
+            })
+
         }
-        .toolbar{
-            ToolbarItem(placement: .topBarTrailing) {
-                Button(action: saveChanges, label: {
-                    Text("Save")
-                })
-            }
+        .onAppear {
+            updateQuery()
         }
     }
 }
@@ -146,6 +148,33 @@ extension FilterSelectionView {
             self.queryObject.city = filters.city
         }
         dismiss()
+    }
+    
+    private func updateQuery() {
+        if let maxPrice = self.queryObject.maxPrice {
+            self.filters.maxPrice = String(format: "%.2f", maxPrice)
+        }
+        if let minPrice = self.queryObject.minPrice {
+            self.filters.minPrice = String(format: "%.2f", minPrice)
+        }
+        if let minSize = self.queryObject.minSize {
+            self.filters.minSize = String(format: "%.1f", minSize)
+        }
+        if let maxSize = self.queryObject.maxSize {
+            self.filters.maxSize = String(format: "%.1f", maxSize)
+        }
+        if let roomCounts = self.queryObject.roomCounts {
+            self.filters.roomCounts = roomCounts
+        }
+        if let bathCounts = self.queryObject.bathCounts {
+            self.filters.bathCounts = bathCounts
+        }
+        if let town = self.queryObject.town {
+            self.filters.town = town
+        }
+        if let city = self.queryObject.city {
+            self.filters.town = city
+        }
     }
 }
 
