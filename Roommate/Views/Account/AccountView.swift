@@ -20,7 +20,7 @@ struct AccountView: View {
                 NavigationLink {
                     UserSettingsView(accountVm: accountVM)
                 } label: {
-                    Label("Username", systemImage: "person.fill")
+                    Label("User Info", systemImage: "person.fill")
                 }
                 NavigationLink {
                     ChangePasswordView(accountVM: accountVM)
@@ -66,6 +66,7 @@ struct AccountView: View {
                 accountVM.logout { isLogout in
                     if isLogout {
                         try? context.delete(model: AppUser.self)
+                        try? context.delete(model: SavedRoom.self)
                     }
                 }
             }
