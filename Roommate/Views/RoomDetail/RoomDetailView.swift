@@ -11,14 +11,17 @@ import SwiftData
 struct RoomDetailView: View {
     private var idiom : UIUserInterfaceIdiom { UIDevice.current.userInterfaceIdiom }
     let room: RoomProtocol
+    var inSavedView: Bool = false
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
     @Bindable private var roomDetailVM: RoomDetailViewModel
     @State private var imageDatas: [Data] = []
     @Query private var users: [AppUser]
     @Query private var savedRooms: [SavedRoom]
-    init(room: RoomProtocol) {
+    init(room: RoomProtocol, inSavedView: Bool = false) {
         self.room = room
         self._roomDetailVM = Bindable(RoomDetailViewModel(room: room))
+        self.inSavedView = inSavedView
     }
     var body: some View { 
         ScrollView{
@@ -29,18 +32,21 @@ struct RoomDetailView: View {
                     RoomAddressInfo(address: roomDetailVM.room.address)
                         .font(.title3)
                         .fontWeight(.semibold)
-                    Button(action: favoriteRoom, label: {
-                        if let user = users.first , roomDetailVM.room.savedBy.contains(where: { savedBy in
-                            savedBy.id == user.id
-                        }){
-                            Image(systemName: "heart.fill")
-                                .foregroundStyle(.accent)
-                        }
-                        Image(systemName: "heart")
-                            .foregroundStyle(.accent)
-                            
-                    })
-                    .font(.title)
+                    if let user = users.first, user.id != room.owner.id {
+                        Button(action: favoriteRoom, label: {
+                            if savedRooms.contains(where: { saved in
+                                saved.id == room.id
+                            }){
+                                Image(systemName: "heart.fill")
+                                    .foregroundStyle(.accent)
+                            }
+                            else {
+                                Image(systemName: "heart")
+                                    .foregroundStyle(.accent)
+                            }
+                        })
+                        .font(.title)
+                    }
                 }
                 Divider()
                 RoomProps(price: roomDetailVM.room.price, size: roomDetailVM.room.size, roomCount: roomDetailVM.room.roomCount, bathCount: roomDetailVM.room.bathCount)
@@ -90,12 +96,8 @@ struct RoomDetailView: View {
             .onAppear{
                 Task {
                     if !roomDetailVM.room.images.isEmpty {
-                        roomDetailVM.room.images.forEach { image in
-                            ImageManager.shared.convertStringToImageData(for: image, completion: { data in
-                                if let data {
-                                    self.imageDatas.append(data)
-                                }
-                            })
+                        ImageManager.shared.convertStringArrayToImageDataArray(for: roomDetailVM.room.images) { data in
+                                self.imageDatas = data
                         }
                     }
                 }
@@ -122,6 +124,9 @@ extension RoomDetailView {
                 saved.id == favedRoom.id
             }){
                 modelContext.delete(savedRoom)
+                if inSavedView {
+                    dismiss()
+                }
             }
             else {
                 let room = SavedRoom(from: favedRoom)
