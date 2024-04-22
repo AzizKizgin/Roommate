@@ -88,6 +88,13 @@ struct HomeView: View {
         }, content: {
             NavigationStack {
                 CreateRoomView()
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button(action: {showCreate.toggle()}, label: {
+                                Text("Cancel")
+                            })
+                        }
+                    }
             }
         })
         .fullScreenCover(isPresented: $showFilters,onDismiss: {
