@@ -14,7 +14,7 @@ struct RoomItem: View {
     var body: some View {
         VStack{
             RoomImages(imageDatas: imageDatas)
-                .frame(height: idiom == .pad ? 500 :270)
+                .frame(height: idiom == .pad ? 500 :250)
             VStack(spacing: 10){
                 RoomAddressInfo(address: room.address)
                     .font(.title3)
