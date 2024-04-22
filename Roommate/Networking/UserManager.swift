@@ -97,11 +97,11 @@ class UserManager {
         }
     }
 
-    func getUserRooms(userId: String, completion: @escaping (Result<[Room],Error>) -> Void) {
+    func getUserRooms(userId: String, completion: @escaping (Result<Room,Error>) -> Void) {
         DataManager.shared.sendRequest(
             for: Endpoints.getUserRoomsURL(id: userId),
             requestType: .get
-        ) {(result: Result<[Room],Error>) in
+        ) {(result: Result<Room,Error>) in
             switch result {
             case .success(let data):
                 completion(.success(data))
