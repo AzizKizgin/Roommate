@@ -17,18 +17,28 @@ struct UserPhotoPicker: View {
     private let imageManager = ImageManager.shared
     var body: some View {
         Button(action: {showPicker.toggle()}, label: {
-            ProfilePicture(image: image, imageSize: .large,isLoading: isLoading)
-                .overlay(alignment: .topTrailing) {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .frame(width: 50)
-                        .scaledToFit()
-                        .foregroundStyle(.white)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(.accent, lineWidth: 4))
-                        .padding(.trailing)
-                      
-                }
+            if isLoading {
+                ProgressView()
+                    .controlSize(.large)
+                    .tint(.accent)
+            }
+            else {
+                ProfilePicture(image: image, imageSize: .large)
+                    .overlay(alignment: .topTrailing) {
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .frame(width: 50)
+                            .scaledToFit()
+                            .foregroundStyle(.white)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(.accent, lineWidth: 4))
+                            .padding(.trailing)
+                        
+                    }
+                    .onAppear{
+                        print(image.count)
+                    }
+            }
        
         })
         .buttonStyle(.plain)
@@ -43,10 +53,14 @@ struct UserPhotoPicker: View {
                    let uiImage = UIImage(data: loadedData)
                 {
                     imageManager.convertImageToString(for: uiImage) { base64String in
-                        if let base64String = base64String {
-                            image = base64String
+                        DispatchQueue.main.async {
+                            defer {
+                                isLoading = false
+                            }
+                            if let base64String {
+                                self.image = base64String
+                            }
                         }
-                        isLoading = false
                     }
                 }
             }

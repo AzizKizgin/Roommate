@@ -23,7 +23,7 @@ struct ProfilePicture: View {
                     .controlSize(.large)
                     .tint(.accent)
             }
-            if let uiImage {
+            else if let uiImage {
                 Image(uiImage: uiImage)
                     .resizable()
                     .foregroundStyle(.accent)
