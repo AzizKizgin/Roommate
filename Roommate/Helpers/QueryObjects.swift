@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RoomQueryObject: Encodable {
+struct RoomQueryObject: Encodable, Equatable {
     var minPrice: Double?
     var maxPrice: Double?
     var roomCounts: [Int]?
@@ -15,7 +15,7 @@ struct RoomQueryObject: Encodable {
     var minSize: Double?
     var maxSize: Double?
     var page: Int = 1
-    var pageSize: Int = 1
+    var pageSize: Int = 15
     var street: String?
     var city: String?
     var town: String?
@@ -25,6 +25,34 @@ struct RoomQueryObject: Encodable {
     var sortBy: SortByProperty?
     var sortDirection: SortDirection?
     var dateRange: DateRange?
+    
+    func toQueryItems() -> [URLQueryItem] {
+        let mirror = Mirror(reflecting: self)
+        var queryItems = [URLQueryItem]()
+        
+        for case let (label?, value) in mirror.children {
+            if label == "bathCounts" {
+                if let arrayValue = value as? [CustomStringConvertible] {
+                         for element in arrayValue {
+                             queryItems.append(URLQueryItem(name: "\(label)", value: element.description))
+                         }
+                     } 
+            }
+            else if label == "roomCounts" {
+                if let arrayValue = value as? [CustomStringConvertible] {
+                         for element in arrayValue {
+                             queryItems.append(URLQueryItem(name: "\(label)", value: element.description))
+                         }
+                     }
+            }
+            else if let stringValue = value as? CustomStringConvertible {
+                let stringRepresentation = stringValue.description
+                queryItems.append(URLQueryItem(name: label, value: stringRepresentation))
+            }
+        }
+        print(queryItems)
+        return queryItems
+    }
 }
 
 enum SortByProperty: Encodable {
