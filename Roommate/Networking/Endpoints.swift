@@ -18,9 +18,9 @@ enum Endpoints {
     }
     
     public static func getRoomListURL(query: RoomQueryObject?) -> URL {
-        let urlString = "\(roomURL)?query=\(query?.toJSONString() ?? "")"
-        let url = URL(string: urlString)!
-        return url
+        var urlComponent = URLComponents(string: roomURL)!
+        urlComponent.queryItems = query?.toQueryItems()
+        return urlComponent.url!
     }
     
     public static func getRoomURL(id: Int) -> URL {
