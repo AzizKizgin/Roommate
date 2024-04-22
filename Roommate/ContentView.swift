@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @AppStorage("isDark") private var isDark: Bool = false
     @Query private var users: [AppUser]
     var body: some View {
         NavigationStack{
@@ -19,6 +20,7 @@ struct ContentView: View {
                 LoginView()
             }
         }
+        .preferredColorScheme(isDark ? .dark: .light)
     }
 }
 
