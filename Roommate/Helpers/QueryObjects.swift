@@ -50,7 +50,6 @@ struct RoomQueryObject: Encodable, Equatable {
                 queryItems.append(URLQueryItem(name: label, value: stringRepresentation))
             }
         }
-        print(queryItems)
         return queryItems
     }
 }
