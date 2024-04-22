@@ -25,10 +25,6 @@ import SwiftUI
         }
     }
     
-    init () {
-        getRooms()
-    }
-    
     func refresh() {
         self.rooms = []
         self.totalPage = 0
@@ -45,9 +41,8 @@ import SwiftUI
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
-                    print("\(response.rooms.count)")
                     self?.rooms.append(contentsOf: response.rooms)
-                    self?.totalPage = response.totalCount
+                    self?.totalPage = response.totalPage
                 case .failure(let error):
                     print(error)
                     self?.setError("An error occurred while fetching data")
