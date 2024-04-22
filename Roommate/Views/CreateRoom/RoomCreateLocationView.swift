@@ -13,6 +13,7 @@ private let initialLocation: CLLocationCoordinate2D = .init(latitude: 41.015137,
 let initialPosition: MapCameraPosition = .camera(.init(centerCoordinate: initialLocation, distance: 30000))
 
 struct RoomCreateLocationView: View {
+    @Environment(\.dismiss) private var dismiss
     @Bindable var createRoomVM: CreateRoomViewModel
     @Namespace private var mapScope
     @State private var position: MapCameraPosition = initialPosition
@@ -88,6 +89,11 @@ struct RoomCreateLocationView: View {
                 }
             }
             .toolbar{
+                ToolbarItem(placement: .navigation) {
+                    Button("Close") {
+                        dismiss()
+                    }
+                }
                 ToolbarItem(placement: .confirmationAction) {
                     if let coordinate = selectedLocation, coordinate.latitude != 0.0 && coordinate.longitude != 0.0 {
                         Button("Next") {
