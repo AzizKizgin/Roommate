@@ -7,7 +7,16 @@
 
 import Foundation
 
-struct Room: Identifiable, Decodable, RoomProtocol {
+struct Room: Identifiable, Decodable, RoomProtocol, Hashable {
+    static func == (lhs: Room, rhs: Room) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        return hasher.combine(id)
+    }
+    
+    
     var id: Int
     var price: Double
     var roomCount: Int
@@ -20,11 +29,12 @@ struct Room: Identifiable, Decodable, RoomProtocol {
     var owner: RoomUser
     var savedBy: [RoomUser]
     var address: RoomAddress
+    
 }
 
 struct RoomsResponse: Decodable {
     let rooms: [Room]
-    let totalCount: Int
+    let totalPage: Int
     let page: Int
     let pageSize: Int
 }
